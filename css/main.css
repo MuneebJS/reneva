@@ -1,0 +1,211 @@
+.custom-datepicker {
+
+    width:100% !important;
+
+}
+
+.ui-widget.ui-widget-content {
+
+    width:100%;
+
+    margin-bottom:20px;
+
+}
+
+.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all {
+
+    background: #000;
+
+    color: #fff;
+
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+
+    background:transparent;
+
+    
+
+    text-align:center;
+
+}
+
+a.ui-state-default.ui-state-active {
+
+    background:#0081db;
+
+    color:#fff;
+
+}
+
+.timepicker.block-center {
+
+  display: inline-block;
+
+  text-align: center;
+
+  position: relative;
+
+  width: 100%;
+
+  max-width: 134px;
+
+}
+
+@media (max-width: 767px) and (orientation:portrait) {
+
+  .timepicker.block-center {
+
+    max-width: 227px;
+
+    width: 100%;
+
+    display: block;
+
+    margin: 0 auto;
+
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation:portrait) {
+
+  .timepicker.block-center {
+
+    max-width: 180px;
+
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation:landscape) {
+
+  .timepicker.block-center {
+
+    max-width: 180px;
+
+  }
+
+}
+
+.timepicker.block-center h4 {
+
+  text-align: center;
+
+  text-transform: capitalize;
+
+  color: #33495f;
+
+}
+
+.timepicker.block-center ul {
+
+  display: table;
+
+  margin: 0 auto;
+
+  padding: 0;
+
+}
+
+.timepicker.block-center ul li {
+
+  display: flex;
+
+  padding: 10px 0px;
+
+}
+
+.timepicker.block-center ul li input {
+
+  -webkit-appearance: none;
+
+  -moz-appearance: radio-container;
+
+  display: inline;
+
+  position: absolute;
+
+  width: 100%;
+
+  height: 20px;
+
+  cursor: pointer;
+
+  outline: 0;
+
+  margin: 0;
+
+  z-index: 1;
+
+  border: none;
+
+  background: none;
+
+}
+
+.timepicker.block-center ul li label {
+
+  margin: 0;
+
+  height: auto;
+
+  z-index: 0;
+
+  font-family: 'AvenirNextLTW01RegularRegular';
+
+}
+
+.view--block-tablet {
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    display: block;
+
+}
+
+input[type="radio"]:checked + label {
+
+  color: #0081db !important;
+
+}
+
+button.btn.btn-success.text-center.custom {
+
+    display: block;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+    background: #000;
+
+    border: none;
+
+    color: #fff;
+
+    width: 200px;
+
+    padding: 12px;
+
+    box-sizing: border-box;
+
+    box-shadow: 0px 3px 5px -2px rgba(0, 0, 0, 0.33);
+
+    margin-bottom: 25px;
+
+    margin-top: 25px;
+
+}
+
+.booked-time-slots {
+  color: red;
+  cursor: none;
+  background: grey;
+}
+.available_slots {
+  color: #fff;
+  background: red;
+}

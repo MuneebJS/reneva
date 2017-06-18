@@ -52,11 +52,35 @@
 
 	<![endif]-->
 	<style type="text/css">
-		.booked-slots {
-			background: red;
+	
+		.time_slot {
+			cursor: pointer;
+		}		
+		.time_slot:hover{
+			background: #000;
+			color: #fff;
+		}
+		.time_slot:visited {
+			background: #000;
+			color: #fff;
+		}
+		.booked-slot {
+			background: #d31b1b ;
 			color: #fff;
 			cursor: not-allowed!important;
+			text-decoration: line-through;
 		}
+		.booked-slot:hover {
+			background: #aa2222 ;
+			color: #fff;
+			cursor: not-allowed!important;
+			text-decoration: line-through;
+		}
+		.selected-slot {
+			background: #5f8c21;
+			color: #fff;
+		}
+
 	</style>
 
 
@@ -396,11 +420,11 @@
 
 								<h4>Morning</h4>
 
-								<ul class="slots">
+								<ul class="slots" id="slots">
 
 									<li>
 
-										<inp" value="1"/>
+										<!-- <inp" value="1" type="radio" name="timeSlot"/> -->
 
 										<label for="startdate-0" class="time_slot" id="time_slot_1">07:00 - 08:00</label>
 
@@ -408,7 +432,7 @@
 
 									<li>
 
-										<input type="radio" name="timeSlot" value="2"/>
+										<!-- <input type="radio" name="timeSlot" value="2"/> -->
 
 										<label for="startdate-1" class="time_slot" id="time_slot_2">08:00 - 09:00</label>
 
@@ -416,13 +440,13 @@
 
 									<li>
 
-										<input type="radio" name="timeSlot" value="3"/>
+										<!-- <input type="radio" name="timeSlot" value="3"/> -->
 										<label for="startdate-1" id="time_slot_3" class="time_slot">08:00 - 09:00</label>
 
 									</li>
 
 									<li>
-										<input type="radio" name="timeSlot" value="4"/>
+										<!-- <input type="radio" name="timeSlot" value="4"/> -->
 
 										<label for="startdate-3" class="time_slot" id="time_slot_4">10:00 - 11:00</label>
 
@@ -430,7 +454,7 @@
 
 									<li>
 
-										<input type="radio" name="timeSlot" value="5"/>
+										<!-- <input type="radio" name="timeSlot" value="5"/> -->
 
 										<label for="startdate-4" id="time_slot_5" class="time_slot">11:00 - 12:00</label>
 
@@ -448,7 +472,7 @@
 
 									<li>
 
-										<input type="radio" name="timeSlot" value="6"/>
+										<!-- <input type="radio" name="timeSlot" value="6"/> -->
 
 										<label for="startdate-0" class="time_slot" id="time_slot_6">12:00 - 13:00</label>
 
@@ -456,7 +480,7 @@
 
 									<li>
 
-										<input type="radio" name="timeSlot" value="7"/>
+										<!-- <input type="radio" name="timeSlot" value="7"/> -->
 
 										<label for="startdate-1" id="time_slot_7" class="time_slot">13:00 - 14:00</label>
 
@@ -464,7 +488,7 @@
 
 									<li>
 
-										<input type="radio" name="timeSlot" value="8"/>
+										<!-- <input type="radio" name="timeSlot" value="8"/> -->
 
 										<label for="startdate-2" class="time_slot" id="time_slot_8">14:00 - 15:00</label>
 
@@ -472,7 +496,7 @@
 
 									<li>
 
-										<input type="radio" name="timeSlot" value="9"/>
+										<!-- <input type="radio" name="timeSlot" value="9"/> -->
 
 										<label for="startdate-3" id="time_slot_9" class="time_slot">15:00 - 16:00</label>
 
@@ -480,7 +504,7 @@
 
 									<li>
 
-										<input type="radio" name="timeSlot" value="10"/>
+										<!-- <input type="radio" name="timeSlot" value="10"/> -->
 
 										<label for="startdate-4" class="time_slot" id="time_slot_10">16:00 - 17:00</label>
 
@@ -498,7 +522,7 @@
 
 									<li>
 
-										<input type="radio" name="timeSlot" value="11"/>
+										<!-- <input type="radio" name="timeSlot" value="11"/> -->
 
 										<label for="startdate-0" id="time_slot_11" class="time_slot">17:00 - 18:00</label>
 
@@ -506,7 +530,7 @@
 
 									<li>
 
-										<input type="radio" name="timeSlot" value="12"/>
+										<!-- <input type="radio" name="timeSlot" value="12"/> -->
 
 										<label for="startdate-1" class="time_slot" id="time_slot_12">18:00 - 19:00</label>
 
@@ -514,7 +538,7 @@
 
 									<li>
 
-										<input type="radio" name="timeSlot" value="13"/>
+										<!-- <input type="radio" name="timeSlot" value="13"/> -->
 
 										<label for="startdate-2" id="time_slot_13" class="time_slot">19:00 - 20:00</label>
 
@@ -522,7 +546,7 @@
 
 									<li>
 
-										<input type="radio" name="timeSlot" value="14"/>
+										<!-- <input type="radio" name="timeSlot" value="14"/> -->
 
 										<label for="startdate-3" class="time_slot" id="time_slot_14">20:00 - 21:00</label>
 
@@ -530,7 +554,7 @@
 
 									<li>
 
-										<input type="radio" name="timeSlot" value="15"/>
+										<!-- <input type="radio" name="timeSlot" value="15"/> -->
 
 										<label for="startdate-4" id="time_slot_15" class="time_slot">21:00 - 22:00</label>
 
@@ -1041,72 +1065,11 @@
 //     });
 
 
- // get day code
-// $("#datepicker").datepicker({
-//     onSelect: function() { 
-//         // var currentDate = $(this).datepicker("hide");
 
-//         console.log(currentDate)
-//     }
-
-// });
-// $("#datepicker").datepicker({
-//    onSelect: function(dateText, inst) { 
-//       var dateAsString = dateText; //the first parameter of this function
-//       var dateAsObject = $(this).datepicker( { dateFormat: 'dd,MM,yyyy' }); //the getDate method
-//       console.log(dateAsObject)
-//       var date = $("#scheduleDate").datepicker({ dateFormat: 'dd,MM,yyyy' }).val();
-//       console.log(date)
-//    }
-// });
-// $(document).ready(function(){
-
-	// real code
-    // Datepicker
-    // var fullDate;
-    // $('#datepicker').datepicker({
-    // 	dateFormat: 'yy-mm-dd',
-    // 	inline: true,
-    // 	minDate: new Date(2010, 1 - 1, 1),
-    // 	maxDate:new Date(2010, 12 - 1, 31),
-    // 	altField: '#datepicker_value',
-    // 	onSelect: function(){
-    // 		var day1 = $("#datepicker").datepicker('getDate').getDate();                 
-    // 		var month1 = $("#datepicker").datepicker('getDate').getMonth() + 1;             
-    // 		var year1 = $("#datepicker").datepicker('getDate').getFullYear();
-    // 		if(day1.length == 1) {
-    // 			day1 += '0'
-    // 		}
-    // 		var fullDate = year1 + "-" + month1 + "-" + day1;
-    // 		console.log(fullDate + ' 00:00:00')
-  		// 	  // $.post("availableTimeSlots.php", {check_date: fullDate}, function(result){
-  			  	// $.ajax({
-  			  	// 	url: "availableTimeSlots.php",
-  			  	// 	type: "POST",
-  			  	// 	data:  fullDate,
-  			  	// 	success: function(result){
-  			  	// 		console.log(fullDate)
-
-  			  	// 		console.log(result);
-  			  	// 		var time_slot_ids = [result.split("|")]
-  			  	// 		console.log(time_slot_ids)
-  			  	// 		var newArr = time_slot_ids[0]
-  			  	// 		console.log(newArr);
-  			  	// 		for (var i = 0; i < newArr.length; i++) {
-  			  	// 			if(newArr[i] != "") {
-  			  	// 				console.log(newArr[i].toString())
-  			  	// 				document.getElementById(newArr[i]).className = 'booked-slots'; 		
-  			  	// 			}
-  			  	// 		}
-
-  			  	// 	};
-  			  	// })
-  		// 	  };
-  		// 	});
-
-  // $(document).ready(function(){
-    // Datepicker
- $('#datepicker').datepicker({
+// Datepicker code
+    var fullDate;
+    var time_slot_id;
+    $('#datepicker').datepicker({
     	dateFormat: 'yy-mm-d',
     	inline: true,
     	minDate: new Date(2017, 1 - 1, 1),
@@ -1117,114 +1080,93 @@
     		var month = $("#datepicker").datepicker('getDate').getMonth() + 1;             
     		var year = $("#datepicker").datepicker('getDate').getFullYear();
 
-    		var fullDate = year + "-" + '12' + "-" + day + " 00:00:00";
+    		fullDate = year + "-" + month + "-" + day;
     		console.log(fullDate.toString())
+    		$.ajax({
+    			type: 'post',
+    			url: 'availableTimeSlots.php',
+    			data: {
+    				date: fullDate,
+    			},
+    			success: function( result ) { 
+    				$(".time_slot").removeClass("booked-slot");
+    				$(".time_slot").removeClass("selected-slot");
+    				console.log(fullDate)
+    				console.log(result);
+    				var time_slot_ids = [result.split("|")]
+    				console.log(time_slot_ids)
+    				var newArr = time_slot_ids[0]
+    				console.log(newArr);	
+    				for (var i = 0; i < newArr.length; i++) {
+    					if(newArr[i] != "") {
+    						console.log(newArr[i])
+    						$("#" + newArr[i]).addClass('booked-slot')
+    					}
+    				}	
+    			}
+    		});        
+    	}
+    });
 
-            	// $("#text-id").on( 'click', function () {
-            		$.ajax({
-            			type: 'post',
-            			url: 'availableTimeSlots.php',
-            			data: {
-            				date: fullDate ,
-            // source2: "some text 2"
-        },
-        success: function( result ) { 
-        	$(".time_slot").removeClass("booked-slots");
-        	console.log(fullDate)
-        	console.log(result);
-        	var time_slot_ids = [result.split("|")]
-        	console.log(time_slot_ids)
-        	var newArr = time_slot_ids[0]
-        	console.log(newArr);	
-        	for (var i = 0; i < newArr.length; i++) {
-        		if(newArr[i] != "") {
-        			console.log(newArr[i])
-        			$("#" + newArr[i]).addClass('booked-slots')
-        		}
-        	}	
-        }
-    });        
-   }
- });
+
+// getting value of time slot
+$('.time_slot').click(function () {
+	// console.log('fire')
+	if(fullDate == undefined) {
+		alert('please select date')
+	}
+	else {
+    		$(".time_slot").removeClass("selected-slot");
+			time_slot_id =  $(this).attr('id');			
+			$(this).addClass('selected-slot')
+			console.log(time_slot_id);
+	}
+});
 
 
 // submission of form
-$('#ser_form_sub').click(function () {
-var service = $('#ser_form_service').find(":selected").text();
-var city = $('#ser_form_city').find(":selected").text();
-var address = $("#ser_form_address").val();
-var coupon = $("#ser_form_coupon").val();
-console.log(city, address, service, coupon)
+$('#ser_form_sub').click(function (event) {
+	event.preventDefault();
+	var service = $('#ser_form_service').find(":selected").text();
+	var city = $('#ser_form_city').find(":selected").text();
+	var address = $("#ser_form_address").val();
+	var coupon = $("#ser_form_coupon").val();
+	var serDate = fullDate;
+	var serTime = time_slot_id;
+	console.log(service, city, address, coupon, serDate, serTime + " All are succes")
+	if (serTime == undefined) {
+		alert('please select time');
+	}
+	else if(serDate == undefined) {
+		alert('please select date');
+	}
+	else if(service == "Please select a Service") {
+		alert('please select service');
+	}
+	else {
+			 $.ajax({
+        url: "service_sub.php",
+        type: "post",
+        data: {
+        	data_service: service,
+        	data_city: city,
+        	data_address: address,
+        	data_coupon: coupon,
+        	data_serDate: serDate,
+        	data_serTime: serTime,
+        },        
+
+        success: function (response) {
+           // you will get response from your php page (what you echo or print)           
+           // console.log(response)      
+           console.log('data sent successfully');
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+           console.log(textStatus, errorThrown);
+        }       
+    });
+	}	
 })
-
-
-// $("#sub-slots").click(function(){
-// 	$.ajax({url: "availableTimeSlots.php", success: function(result){
-// 		// console.log(fullDate)
-
-//         console.log(result);
-//         var time_slot_ids = [result.split("|")]
-//         console.log(time_slot_ids)
-//         var newArr = time_slot_ids[0]
-//         console.log(newArr);
-//         	for (var i = 0; i < newArr.length; i++) {
-//         		if(newArr[i] != "") {
-//         			console.log(newArr[
-
-//     }});
-// });i].toString())
-//         			document.getElementById(newArr[i]).className = 'booked-slots'; 		
-//         		}
-//         	}
-
-
-
-
-// $("#demo").click(function(){
-// 	console.log('click fired')
-// 	function loadDoc() {
-
-
-//   var xhttp = new XMLHttpRequest();
-//   xhttp.onreadystatechange = function() {
-//     if (this.readyState == 4 && this.status == 200) {
-//       // $(#demo3).html = this.responseText;
-//        $("#test1").text("Hello world!");
-//        $("#test1").text(this.responseText);
-//       console.log('request fired', this.responseText)
-//     }
-//   };
-//   xhttp.open("GET", "availableTimeSlots.php", true);
-//   xhttp.send();
- // }
- // });
-
-
-
-  // $(function () 
-  // {
-  //   //-----------------------------------------------------------------------
-  //   // 2) Send a http request with AJAX http://api.jquery.com/jQuery.ajax/
-  //   //-----------------------------------------------------------------------
-  //   $.ajax({                                      
-  //     url: 'availableTimeSlots.php',                  //the script to call to get data          
-  //     data: "",                        //you can insert url argumnets here to pass to api.php
-  //                                      //for example "id=5&parent=6"
-  //     dataType: 'json',                //data format      
-  //     success: function(data)          //on recieve of reply
-  //     {
-  //       var id = data[0];              //get id
-  //       var vname = data[1];           //get name
-  //       //--------------------------------------------------------------------
-  //       // 3) Update html content
-  //       //--------------------------------------------------------------------
-  //       $('#demo3').html("<b>id: </b>"+id+"<b> name: </b>"+vname); //Set output element html
-  //       //recommend reading up on jquery selectors they are awesome 
-  //       // http://api.jquery.com/category/selectors/
-  //       console.log(id + "    " + vname)
-  //     } 
-  //   });
-  // }); 
 
 
 </script>	

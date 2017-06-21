@@ -14,18 +14,6 @@ if(isset($_POST['date']))
 }
 
 
-
-// if(isset($_POST['date']))
-// {
-//     $cal_date = $_POST['date'];
-// }
-// if(isset($_POST['date']))
-// {
-//     $cal_date = $_POST['date'];
-// }
-
-
-
 $con= mysqli_connect($servername,$username,$password,$dbname);
 // Check connection
 if (mysqli_connect_errno())

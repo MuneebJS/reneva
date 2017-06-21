@@ -7,21 +7,6 @@ $dbname = "services_technohost";
 $tableName = "service_data";
 $data = '';
 
-// if(isset($_POST['data_service']))
-// {
-// 	$service = $_POST['data_service'];
-// }
-// $service = 'hello';
-// $service = "AC service";
-// $city = "Karachi";
-// $address = "munib@gmail.com";
-// $coupon = "25";
-// $serDate = "2017-12-8 00:00:00";
-// $serTime = "time_slot_1";
-if(isset($_POST['data_service']))
-{
-    $service = $_POST['data_service'];
-}
 
 if(isset($_POST['data_city']))
 {

@@ -53,32 +53,26 @@
 	<![endif]-->
 	<style type="text/css">
 	
-		.time_slot {
-			cursor: pointer;
+		.available-slot {
+			cursor: pointer!important;
 		}		
-		.time_slot:hover{
-			background: #000;
-			color: #fff;
-		}
-		.time_slot:visited {
+		.available-slot:hover{
 			background: #000;
 			color: #fff;
 		}
 		.booked-slot {
 			background: #d31b1b ;
 			color: #fff;
-			cursor: not-allowed!important;
+			cursor: default!important;
 			text-decoration: line-through;
 		}
-		.booked-slot:hover {
-			background: #aa2222 ;
-			color: #fff;
-			cursor: not-allowed!important;
-			text-decoration: line-through;
-		}
+
 		.selected-slot {
 			background: #5f8c21;
 			color: #fff;
+		}
+		.error {
+			color: #d50000;
 		}
 
 	</style>
@@ -118,7 +112,7 @@
 
 					<div id="logo">
 
-						<a href="index-2.html"><img src="images/logo.png" alt=""></a>
+						<a href="index.html"><img src="images/logo.png" alt=""></a>
 
 					</div>
 
@@ -162,7 +156,7 @@
 
 
 
-						<li class="with-btn"><a href="wizard.html" class="button border medium">Request Service</a></li>
+						<li class="with-btn"><a href="wizard.php" class="button border medium">Request Service</a></li>
 
 					</ul>
 
@@ -284,7 +278,7 @@
 
 
 
-						<li><a href="contact.html">About Us</a></li>
+						<li><a href="about.html">About Us</a></li>
 
 
 
@@ -345,7 +339,7 @@
 				<div class="row">
 
 					<div class="col-md-6">
-
+					<span class="error" id="select-ser-error" style="display: none">Please select a service</span>
 						<select class="form-control" name="Select a Service" placeholder="Please select a service" id="ser_form_service">
 
 							<option class="num" value="">Please select a Service</option>
@@ -426,7 +420,7 @@
 
 										<!-- <inp" value="1" type="radio" name="timeSlot"/> -->
 
-										<label for="startdate-0" class="time_slot" id="time_slot_1">07:00 - 08:00</label>
+										<label for="startdate-0" class="time_slot available-slot" id="time_slot_1">07:00 - 08:00</label>
 
 									</li>
 
@@ -434,21 +428,21 @@
 
 										<!-- <input type="radio" name="timeSlot" value="2"/> -->
 
-										<label for="startdate-1" class="time_slot" id="time_slot_2">08:00 - 09:00</label>
+										<label for="startdate-1" class="time_slot available-slot" id="time_slot_2">08:00 - 09:00</label>
 
 									</li>
 
 									<li>
 
 										<!-- <input type="radio" name="timeSlot" value="3"/> -->
-										<label for="startdate-1" id="time_slot_3" class="time_slot">08:00 - 09:00</label>
+										<label for="startdate-1" id="time_slot_3" class="time_slot available-slot">08:00 - 09:00</label>
 
 									</li>
 
 									<li>
 										<!-- <input type="radio" name="timeSlot" value="4"/> -->
 
-										<label for="startdate-3" class="time_slot" id="time_slot_4">10:00 - 11:00</label>
+										<label for="startdate-3" class="time_slot available-slot" id="time_slot_4">10:00 - 11:00</label>
 
 									</li>
 
@@ -456,7 +450,7 @@
 
 										<!-- <input type="radio" name="timeSlot" value="5"/> -->
 
-										<label for="startdate-4" id="time_slot_5" class="time_slot">11:00 - 12:00</label>
+										<label for="startdate-4" id="time_slot_5" class="time_slot available-slot">11:00 - 12:00</label>
 
 									</li>
 
@@ -474,7 +468,7 @@
 
 										<!-- <input type="radio" name="timeSlot" value="6"/> -->
 
-										<label for="startdate-0" class="time_slot" id="time_slot_6">12:00 - 13:00</label>
+										<label for="startdate-0" class="time_slot available-slot" id="time_slot_6">12:00 - 13:00</label>
 
 									</li>
 
@@ -482,7 +476,7 @@
 
 										<!-- <input type="radio" name="timeSlot" value="7"/> -->
 
-										<label for="startdate-1" id="time_slot_7" class="time_slot">13:00 - 14:00</label>
+										<label for="startdate-1" id="time_slot_7" class="time_slot available-slot">13:00 - 14:00</label>
 
 									</li>
 
@@ -490,7 +484,7 @@
 
 										<!-- <input type="radio" name="timeSlot" value="8"/> -->
 
-										<label for="startdate-2" class="time_slot" id="time_slot_8">14:00 - 15:00</label>
+										<label for="startdate-2" class="time_slot available-slot" id="time_slot_8">14:00 - 15:00</label>
 
 									</li>
 
@@ -498,7 +492,7 @@
 
 										<!-- <input type="radio" name="timeSlot" value="9"/> -->
 
-										<label for="startdate-3" id="time_slot_9" class="time_slot">15:00 - 16:00</label>
+										<label for="startdate-3" id="time_slot_9" class="time_slot available-slot">15:00 - 16:00</label>
 
 									</li>
 
@@ -506,7 +500,7 @@
 
 										<!-- <input type="radio" name="timeSlot" value="10"/> -->
 
-										<label for="startdate-4" class="time_slot" id="time_slot_10">16:00 - 17:00</label>
+										<label for="startdate-4" class="time_slot available-slot" id="time_slot_10">16:00 - 17:00</label>
 
 									</li>
 
@@ -524,7 +518,7 @@
 
 										<!-- <input type="radio" name="timeSlot" value="11"/> -->
 
-										<label for="startdate-0" id="time_slot_11" class="time_slot">17:00 - 18:00</label>
+										<label for="startdate-0" id="time_slot_11" class="time_slot available-slot">17:00 - 18:00</label>
 
 									</li>
 
@@ -532,7 +526,7 @@
 
 										<!-- <input type="radio" name="timeSlot" value="12"/> -->
 
-										<label for="startdate-1" class="time_slot" id="time_slot_12">18:00 - 19:00</label>
+										<label for="startdate-1" class="time_slot available-slot" id="time_slot_12">18:00 - 19:00</label>
 
 									</li>
 
@@ -540,7 +534,7 @@
 
 										<!-- <input type="radio" name="timeSlot" value="13"/> -->
 
-										<label for="startdate-2" id="time_slot_13" class="time_slot">19:00 - 20:00</label>
+										<label for="startdate-2" id="time_slot_13" class="time_slot available-slot">19:00 - 20:00</label>
 
 									</li>
 
@@ -548,7 +542,7 @@
 
 										<!-- <input type="radio" name="timeSlot" value="14"/> -->
 
-										<label for="startdate-3" class="time_slot" id="time_slot_14">20:00 - 21:00</label>
+										<label for="startdate-3" class="time_slot available-slot" id="time_slot_14">20:00 - 21:00</label>
 
 									</li>
 
@@ -556,7 +550,7 @@
 
 										<!-- <input type="radio" name="timeSlot" value="15"/> -->
 
-										<label for="startdate-4" id="time_slot_15" class="time_slot">21:00 - 22:00</label>
+										<label for="startdate-4" id="time_slot_15" class="time_slot available-slot">21:00 - 22:00</label>
 
 									</li>
 
@@ -972,97 +966,8 @@
 
 			}
 
-		});	/*ready*/
+		});	
 
-
-// jquery code for calender available slots
-
-// var $datePicker = $("div#datepicker");
-
-// var $datePicker = $("div");
-
-// $datePicker.datepicker({
-//     changeMonth: true,
-//     changeYear: true,
-//     inline: true,
-//     altField: "#datep",
-// }).change(function(e){
-//     setTimeout(function(){   
-//         $datePicker
-//             .find('.ui-datepicker-current-day')
-//             .parent()
-//             .after('<tr>\n\
-//                         <td colspan="8">\n\
-//                             <div> \n\
-//                                 <button>8:00 am – 9:00 am </button>\n\
-//                             </div>\n\
-//                             <button>9:00 am – 10:00 am</button>\n\
-//                             </div>\n\
-//                             <button>10:00 am – 11:00 am</button>\n\
-//                             </div>\n\
-//                         </td>\n\
-//                    </tr>');
-
-//     });
-// });
-
-// available slots code
-//  $("document").ready(function(){
-
-// var $datePicker = $("div#datepicker");
-
-// // var $datePicker = $("div");
-
-// $datePicker.datepicker({
-//     changeMonth: true,
-//     changeYear: true,
-//     inline: true,
-//     altField: "#datep",
-// }).change(function(e){
-//     setTimeout(function(){   
-//         // $datePicker
-//         //     .find('.ui-datepicker-current-day')
-//         //     .parent()
-//         //     .after('<tr>\n\
-//         //                 <td colspan="8">\n\
-//         //                     <div> \n\
-//         //                         <button>8:00 am – 9:00 am </button>\n\
-//         //                     </div>\n\
-//         //                     <button>9:00 am – 10:00 am</button>\n\
-//         //                     </div>\n\
-//         //                     <button>10:00 am – 11:00 am</button>\n\
-//         //                     </div>\n\
-//         //                 </td>\n\
-//         //            </tr>');
-
-//         		// $("#demo2").hide();
-
-//     // $("#demo2").html('<tr>\n\
-//     //                      <td colspan="8">\n\
-//     //                        <div> \n\
-//     //                             <button>8:00 am – 9:00 am </button>\n\
-//     //                         </div>\n\
-//     //                         <button>9:00 am – 10:00 am</button>\n\
-//     //                         </div>\n\
-//     //                         <button>10:00 am – 11:00 am</button>\n\
-//     //                        </div>\n\
-//     //                     </td>\n\
-//     //                </tr>');
-//     console.log( e.html)
-//     $("#time-slot-1").prepend("available <br>");
-//     $("#time-slot-2").prepend("available <br>");
-//     $("#time-slot-3").prepend("available <br>");
-//     $("#time-slot-4").prepend("available <br>");
-//       $("#time-slot-5").prepend("not available <br>");
-//       $("#time-slot-6").prepend("not available <br>");
-//       $("#time-slot-7").prepend("not available <br>");
-//       $("#time-slot-8").prepend("not available <br>");
-//       $("#time-slot-9").prepend("not available <br>");
-//       $("#time-slot-10").prepend("not available <br>");
-//     }), 10
-// });
-
-//     });
 
 
 
@@ -1076,6 +981,7 @@
     	maxDate:new Date(2017, 12 - 1, 31),
     	altField: '#datepicker_value',
     	onSelect: function(){
+    		$('.time_slot').removeClass('booked-slot');
     		var day = $("#datepicker").datepicker('getDate').getDate();                 
     		var month = $("#datepicker").datepicker('getDate').getMonth() + 1;             
     		var year = $("#datepicker").datepicker('getDate').getFullYear();
@@ -1089,8 +995,8 @@
     				date: fullDate,
     			},
     			success: function( result ) { 
-    				$(".time_slot").removeClass("booked-slot");
-    				$(".time_slot").removeClass("selected-slot");
+    				$(".time-slot").removeClass("booked-slot");
+    				$(".available-slot").removeClass("selected-slot");
     				console.log(fullDate)
     				console.log(result);
     				var time_slot_ids = [result.split("|")]
@@ -1100,7 +1006,8 @@
     				for (var i = 0; i < newArr.length; i++) {
     					if(newArr[i] != "") {
     						console.log(newArr[i])
-    						$("#" + newArr[i]).addClass('booked-slot')
+    						$("#" + newArr[i]).removeClass('available-slot');
+    						$("#" + newArr[i]).addClass('booked-slot');
     					}
     				}	
     			}
@@ -1110,18 +1017,25 @@
 
 
 // getting value of time slot
-$('.time_slot').click(function () {
-	// console.log('fire')
+$('.available-slot').click(function () {
 	if(fullDate == undefined) {
 		alert('please select date')
 	}
+	if($(this).hasClass("booked-slot")) {
+		alert("please select available slot");
+	}
+	else if((this).className == "booked-slot") {
+		alert('please select availabe time slot');
+	}
 	else {
-    		$(".time_slot").removeClass("selected-slot");
-			time_slot_id =  $(this).attr('id');			
+    		$(".available-slot").removeClass("selected-slot");
+			time_slot_id =  $(this).attr('id');
 			$(this).addClass('selected-slot')
 			console.log(time_slot_id);
 	}
 });
+
+
 
 
 // submission of form
@@ -1136,6 +1050,9 @@ $('#ser_form_sub').click(function (event) {
 	console.log(service, city, address, coupon, serDate, serTime + " All are succes")
 	if (serTime == undefined) {
 		alert('please select time');
+		// $('#select-ser-error').text('please select a service');
+		// $("#select-ser-error").show();
+		// setTimeout(function() { $("#myElem").hide(); }, 100);
 	}
 	else if(serDate == undefined) {
 		alert('please select date');
@@ -1147,6 +1064,7 @@ $('#ser_form_sub').click(function (event) {
 			 $.ajax({
         url: "service_sub.php",
         type: "post",
+        // async: false,
         data: {
         	data_service: service,
         	data_city: city,
@@ -1159,7 +1077,10 @@ $('#ser_form_sub').click(function (event) {
         success: function (response) {
            // you will get response from your php page (what you echo or print)           
            // console.log(response)      
-           console.log('data sent successfully');
+           // console.log('data sent successfully');
+           alert('Your form has been submitted successfully');
+           $('.time_slot').removeClass('booked-slot');
+           $('.time_slot').removeClass('selected-slot');
         },
         error: function(jqXHR, textStatus, errorThrown) {
            console.log(textStatus, errorThrown);
@@ -1214,7 +1135,7 @@ $('#ser_form_sub').click(function (event) {
 
 <div id="style-switcher">
 
-	<h2>Style Switcher <a href="#"></a></h2>
+	
 
 
 

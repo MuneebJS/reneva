@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+<!-- Mirrored from www.vasterad.com/themes/reneva/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2017 23:13:00 GMT -->
+<head>
+
+<!-- Basic Page Needs
+  ================================================== -->
+  <meta charset="utf-8">
+  <title>Reneva</title>
+
+<!-- Mobile Specific Metas
+  ================================================== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+  ================================================== -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- facebook sdk -->
+
+
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/main.css?v=1">
+  <link rel="stylesheet" href="css/colors/blue.css" id="colors">
+
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+  <!-- Wrapper -->
+  <!-- facebook sdk -->
+
+<!-- <script>
+  fbAsyncInit = function() {
+    FB.init({
+      appId      : '828264817339370',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+    FB.getLoginStatus(function(response) {
+      // we can play with response object
+      // see more in documentation
+    statusChangeCallback(response);
+    // console.log(response);
+});
+
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    // The response object is returned with a status field that lets the
+    // app know the current login status of the person.
+    // Full docs on the response object can be found in the documentation
+    // for FB.getLoginStatus().
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+      console.log('status change response')
+
+    } else {
+      // The person is not logged into your app or we are unable to tell.
+      // document.getElementById('status').innerHTML = 'Please log ' +
+      //   'into this app.';
+    }
+  }
+
+// This function will work on login button
+  function checkLoginState() {
+  FB.getLoginStatus(function(response) {
+    // statusChangeCallback(response);
+    if(response == "connected") {
+      console.log('you are already login');
+      // let the brought to the home page
+      // TODO: i'LL write the code here for above
+    }
+    else {
+      console.log('you are not connected');
+    }
+  });
+}
+
+function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      // console.log('Successful login for: ' + response.name);
+      console.log(response.email);
+      // document.getElementById('status').innerHTML =
+      //   'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+
+
+</script> -->
+
+<!-- codex code -->
+
+<!-- <button onClick="saveUserData()">  click</button> -->
+<script>
+  var fbUserId;
+  var fbUserFirstName;
+  var fbUserLastName;
+  var fbUserEmail;
+  var fbUserGender;
+  window.fbAsyncInit = function() {
+    // FB JavaScript SDK configuration and setup
+    FB.init({
+      appId      : '828264817339370', // FB App ID
+      cookie     : true,  // enable cookies to allow the server to access the session
+      xfbml      : true,  // parse social plugins on this page
+      version    : 'v2.8' // use graph api version 2.8
+    });
+    
+    // Check whether the user already logged in
+    FB.getLoginStatus(function(response) {
+      if (response.status === 'connected') {
+            //display user data
+            getFbUserData();
+            saveUserData();
+            // console.log(getFbUserData());
+          }
+        });
+  };
+
+// Load the JavaScript SDK asynchronously
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+// Facebook login with JavaScript SDK
+function fbLogin() {
+  FB.login(function (response) {
+    if (response.authResponse) {
+            // Get and display the user profile data
+            getFbUserData();
+            saveUserData();
+          } else {
+            console.log('User cancelled login or did not fully authorize.');
+
+          }
+        }, {scope: 'email'});
+}
+
+// Fetch the user profile data from facebook
+function getFbUserData(){
+  FB.api('/me', {locale: 'en_US', fields: 'id,first_name,last_name,email,gender'},
+    function (response) {
+      // console.log(response);
+      document.getElementById('fbLink').setAttribute("onclick","fbLogout()");
+      document.getElementById('fbLink').innerHTML = 'Logout from Facebook';
+      fbUserId = response.id,
+      fbUserFirstName = response.first_name;
+      fbUserLastName = response.last_name;
+      fbUserEmail = response.email;
+      fbUserGender = response.gender;
+        // console.log(fbUserEmail)
+      });
+}
+
+// Logout from facebook
+function fbLogout() {
+  FB.logout(function() {
+    document.getElementById('fbLink').setAttribute("onclick","fbLogin()");
+    document.getElementById('fbLink').innerHTML = 'Login';
+    // document.getElementById('userData').innerHTML = '';
+    // document.getElementById('status').innerHTML = 'You have successfully logout from Facebook.';
+    console.log('You have successfully logout from Facebook.');
+  });
+}
+
+function saveUserData(userData){
+  console.log('saveUserData fired')
+//     $.post('login_with_fb.php',
+//     {
+      // oauth_provider:'facebook',
+//       userData: JSON.stringify(userData)},
+//       //  function(data) { 
+//       //   return true; 
+//       // });
+
+$.ajax({
+  oauth_provider:'facebook',
+  type: 'post',
+  url: 'login_with_fb.php',
+  data: {
+    id: fbUserId,
+    firstName: fbUserFirstName,
+    lastName: fbUserLastName,
+    email: fbUserEmail,
+    gender: fbUserEmail
+  },
+  success: function( result ) { 
+    // console.log(result);
+    if(result  == 1) {
+      console.log('This email is already taken')
+    }
+    else if(result  ==  "registered")
+    {
+      $("#fbLink").html('Signing Up');
+      setTimeout($('#signup_form').fadeOut(500, function () {
+                // body...
+                location.replace("http://localhost/services.technohost.biz/services.technohost.biz/index.html");
+              }), 1000)
+
+    }
+
+  }
+}); 
+
+}
+</script>
+
+
+
+
+
+<div id="wrapper">
+
+
+  <div class="container">
+    <div class="modal fade" id="ser-not-vailable-popup" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Sorry!</h4>
+          </div>
+          <div class="modal-body">
+            <p>We will launch this service soon</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<!-- Header
+  ================================================== -->
+  <div class="container">
+    <!-- fb like and comment btns -->
+   <!--  <div
+    class="fb-like"
+    data-share="true"
+    data-width="450"
+    data-show-faces="true">
+  </div> -->
+  <!-- fb like and comment btns -->
+
+
+
+  <div class="row">
+    <div class="header">
+
+      <div class="col-md-3 col-sm-12">
+        <div id="logo">
+          <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+      </div>
+      <div class="col-md-9 col-sm-12">
+        <ul class="header-widget">
+          <li>
+            <i class="sl sl-icon-call-in"></i>
+            <div class="widget-content">
+              <span class="title">Questions?</span>
+              <span class="data">(123) 123-456 </span>
+            </div>
+          </li>
+
+          <li>
+            <i class="sl sl-icon-location"></i>
+            <div class="widget-content">
+              <span class="title">Our Office</span>
+              <span class="data">45 Park Avenue, NY</span>
+            </div>
+          </li>
+
+          <li class="with-btn"><a href="wizard.php" class="button border medium">Request Service</a></li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <!-- Mobile Navigation -->
+      <div class="menu-responsive">
+        <i class="fa fa-reorder menu-trigger"></i>
+        <i class="fa fa-search search-trigger"></i>
+        <form action="#" method="get" class="responsive-search">
+          <input type="text" onblur="if(this.value=='')this.value='to search type and hit enter';" onfocus="if(this.value=='to search type and hit enter')this.value='';" value="to search type and hit enter" />
+        </form>
+      </div>
+
+      <!-- Main Navigation -->
+      <nav id="navigation">
+
+        <!-- Search Form -->
+        <div class="search-container">
+          <form action="#" method="get">
+            <input type="text" name="s" id="s" onblur="if(this.value=='')this.value='to search type and hit enter';" onfocus="if(this.value=='to search type and hit enter')this.value='';" value="to search type and hit enter" />
+          </form>
+          <div class="close-search"><a class="fa fa-times" href="#"></a></div>
+        </div>
+
+        <ul class="menu" id="responsive">
+
+          <li class="dropdown" >
+            <a href="index.html" >Home</a>
+          </li>
+
+
+              <li class="dropdown" >
+                <a href="services-1.html">Services</a>
+                <ul>
+                  <li><a href="services-1.html">All Services</a></li>
+                  <li><a href="bike-tuneup.html">Bike Tune-up</a></li>
+                  <li><a href="ac-repair.html">AC Repair</a></li>
+                  <li><a href="electrician.html">Electrician</a></li>
+                  <li><a href="plumbing.html">Plumbing</a></li>
+                  <li><a href="home-app-repair.html">Home Appliances Repair</a></li>
+
+                </ul>
+              </li>
+
+              <li class="dropdown upcoming_services">
+                <a href="services-1.html">Upcoming Services</a>
+                <ul>
+                  <li><a href="#ser-not-vailable-popup" class="driver_counter" data-toggle="modal" >Driver</a></li>
+                  <li><a href="#ser-not-vailable-popup" class="beautician_counter" data-toggle="modal" >Beautician</a></li>
+                  <li><a href="#ser-not-vailable-popup" class="maid_counter" data-toggle="modal" >Maid</a></li>
+                  <li>
+                    <a href="#ser-not-vailable-popup" class="cook_counter" data-toggle="modal" >
+                    Cook</a>
+                  </li>               
+                </ul>
+              </li>
+              <li class="dropdown" >
+                <a href="blog.html">Blog</a>
+              </li>
+
+              <li><a href="contact.html">contact</a></li>
+
+              <li><a href="about.html">About Us</a></li>
+              <li class="" id="nav-reg-tab"><a href="login.html" >Login</a></li>
+
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div id="titlebar">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+
+            <h2>Sign up</h2>
+
+            <!-- Breadcrumbs -->
+            <nav id="breadcrumbs">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>Sign up</li>
+              </ul>
+            </nav>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container margin-top-30 margin-bottom-30"> 
+      <div class="row"> 
+       <!-- <div id="login" class="">  -->
+       <div id="signup" class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">  
+        <h2  class="text-center">Sign up</h2>
+        <span id="signup_error"></span>
+        <form id="signup_form" method="post">
+          <div class="form-group">  
+            <div class="col-xs-12">
+              <input type="text" id="signup_first_name"  name="reg_user_first_name" placeholder="First Name" required="required" class="form-control">
+            </div> 
+
+            <div class="col-xs-12">
+              <input type="text" placeholder="Last Name" name="reg_user_last_name" id="signup_last_name" required="required" class="form-control">
+            </div>
+
+            <div class="col-xs-12">
+              <input type="email" id="signup_email" name="reg_user_email" placeholder="Email" required="required" class="form-control">
+            </div>
+
+            <div class="col-xs-4 col-sm-3">
+              <select class="form-control" id="mbl_code" name="mbl_code" placeholder="Select your sim code"> 
+                <optgroup label="Jazz">
+                  <option class="num" value="0300" selected>0300</option>
+                  <option class="num" value="0301">0301</option>
+                  <option class="num" value="0302">0302</option>
+                  <option class="num" value="0303">0303</option>
+                  <option class="num" value="0304">0304</option>
+                  <option class="num" value="0305">0300</option>
+                  <option class="num" value="0300">0300</option>
+                  <option class="num" value="0300">0300</option>
+                  <option class="num" value="0300">0300</option>
+                  <option class="num" value="0300">0300</option>
+                  <option class="num" value="0300">0300</option>
+                  <option class="num" value="0300">0300</option>
+                  <option class="num" value="0300">0300</option>
+                  <option class="num" value="0300">0300</option>
+                  <option class="num" value="0300">0300</option>
+                  <option class="num" value="0300">0300</option>
+                  <option class="num" value="0300">0300</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="col-xs-8 col-sm-9">
+              <input type="text" name="mbl_nmbr" id="mbl_nmbr" required="required" class="form-control input-lg" placeholder="Mobile" required>
+            </div>
+
+            <div class="col-xs-12">
+              <input type="text" id="landline_nmbr" name="landline_nmbr" class="form-control input-lg" placeholder="landline number">
+            </div>
+            <div class="col-xs-12">
+              <input type="text" id="nic_nmbr" name="nic_nmbr" class="form-control input-lg" placeholder="NIC number">
+            </div>
+
+            <div class="col-xs-12">
+              <input type="text" id="reg_add_1" name="reg_add1" class="form-control" placeholder="Address line 1">
+            </div>
+
+            <div class="col-xs-12">
+              <input type="text" id="reg_add_2" name="reg_add2" class="form-control" placeholder="Address line 1">
+            </div>
+
+            <div class="col-xs-12">
+             <select class="form-control" id="signup_user_city" name="reg_cus_city" placeholder="Enter Your City"> 
+              <option value="">Please select a City</option>
+              <optgroup label="Cities">
+                <option class="num" value="karachi" selected>Karachi</option>
+              </optgroup>
+            </select>
+          </div>
+
+
+          <div class="form-group col-xs-12">
+            <input type="password" id="reg_user_pass" name="reg_user_pass" placeholder="Password"  required class="form-control">
+          </div>
+          <!-- confrm password commented -->
+<!--           <div class="form-group col-xs-12">
+            <input type="password" id="reg_user_con_pass" name="reg_user_con_pass" placeholder="Confirm Password" required class="form-control">
+          </div> -->
+
+          <div class="login-btn text-center col-xs-12">
+            <button type="submit" id="signup_sub" class="btn btn-lg btn-primary btn-theme-bg">Sign up</button>
+          </div>
+        </div>
+        <!-- <div id="status"></div> -->
+
+        <!-- Facebook login or logout button -->
+        <div style="
+  /*        margin-top:   10px;*/
+          text-align:   center; 
+        "> 
+        <button type="button" data-button-type="continue_with" class="btn" style="
+        background: #4080FF; 
+        /*padding-top: 10px;*/
+        margin:   10px auto ;
+
+        ">  
+            <a href=""   onclick="fbLogin()" id="fbLink" style="color:  #fff">Login with facebook</a>
+        </button>
+        </div>
+
+        <!-- Display user profile data -->
+        <!-- <div id="userData"></div> -->
+      </form> 
+
+    </div>
+  </div>
+</div>
+
+
+
+<div id="footer">
+  <!-- Main -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 col-sm-6">
+        <h4>About</h4>
+        <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+        <ul class="social-icons margin-bottom-30">
+          <li style="margin-right: 30px"><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+          <li style="margin-right: 30px"><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+          <!-- <li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li> -->
+          <div class="clearfix"></div>
+        </ul>
+      </div>
+
+      <div class="col-md-2 col-md-offset-1  col-sm-6">
+        <h4>Helpful Links</h4>
+        <ul class="footer-links">
+          <li><a href="services-1.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">contact</a></li>          
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>    
+
+      <div class="col-md-3  col-sm-12 col-xs-12">
+        <h4>contact</h4>
+        <div class="text-widget">
+          <span>12345 Little Lonsdale St, Melbourne</span> <br>
+          Phone: <span>(123) 123-456 </span><br>
+          Fax: <span>(123) 123-456</span> <br>
+          E-Mail:<span> office@example.com </span><br>
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- Copyright -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="copyrights">©  Copyright 2016 by <a href="#">Reneva</a>. All Rights Reserved.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="backtotop"><a href="#"></a></div>
+
+
+<!-- Scripts
+  ================================================== -->
+  <script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+  <script type="text/javascript" src="scripts/superfish.js"></script>
+  <script type="text/javascript" src="scripts/hoverIntent.js"></script>
+  <script type="text/javascript" src="scripts/jquery.flexslider-min.js"></script>
+  <script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="scripts/counterup.min.js"></script>
+  <script type="text/javascript" src="scripts/waypoints.min.js"></script>
+  <script type="text/javascript" src="scripts/jquery.themepunch.tools.min.js"></script>
+  <script type="text/javascript" src="scripts/jquery.themepunch.revolution.min.js"></script>
+  <script type="text/javascript" src="scripts/jquery.isotope.min.js"></script>
+  <script type="text/javascript" src="scripts/jquery.magnific-popup.min.js"></script>
+  <script type="text/javascript" src="scripts/jquery.sticky-kit.min.js"></script>
+  <script type="text/javascript" src="scripts/jquery.twentytwenty.js"></script>
+  <script type="text/javascript" src="scripts/jquery.event.move.js"></script>
+  <script type="text/javascript" src="scripts/jquery.photogrid.js"></script>
+  <script type="text/javascript" src="scripts/jquery.tooltips.min.js"></script>
+  <script type="text/javascript" src="scripts/jquery.pricefilter.js"></script>
+  <script type="text/javascript" src="scripts/jquery.stacktable.js"></script>
+  <script type="text/javascript" src="scripts/jquery.contact-form.js"></script>
+  <script type="text/javascript" src="scripts/jquery.jpanelmenu.js"></script>
+  <script type="text/javascript" src="scripts/custom.js"></script>
+
+
+  <!-- REVOLUTION SLIDER SCRIPT -->
+  <script type="text/javascript">
+    var tpj=jQuery;     
+    var revapi4;
+    tpj(document).ready(function() {
+      if(tpj("#rev_slider_4_1").revolution == undefined){
+        revslider_showDoubleJqueryError("#rev_slider_4_1");
+      }else{
+        revapi4 = tpj("#rev_slider_4_1").show().revolution({
+          sliderType:"standard",
+          jsFileLocation:"scripts/",
+          sliderLayout:"auto",
+          dottedOverlay:"none",
+          delay:9000,
+          navigation: {
+            keyboardNavigation:"off",
+            keyboard_direction: "horizontal",
+            mouseScrollNavigation:"off",
+            onHoverStop:"on",
+            touch:{
+              touchenabled:"on",
+              swipe_threshold: 75,
+              swipe_min_touches: 1,
+              swipe_direction: "horizontal",
+              drag_block_vertical: false
+            }
+            ,
+            arrows: {
+              style:"zeus",
+              enable:true,
+              hide_onmobile:true,
+              hide_under:600,
+              hide_onleave:true,
+              hide_delay:200,
+              hide_delay_mobile:1200,
+              tmp:'<div class="tp-title-wrap"></div>',
+              left: {
+                h_align:"left",
+                v_align:"center",
+                h_offset:00,
+                v_offset:0
+              },
+              right: {
+                h_align:"right",
+                v_align:"center",
+                h_offset:00,
+                v_offset:0
+              }
+            }
+            ,
+            bullets: {
+              enable:true,
+              hide_onmobile:true,
+              hide_under:600,
+              style:"hermes",
+              hide_onleave:true,
+              hide_delay:200,
+              hide_delay_mobile:1200,
+              direction:"horizontal",
+              h_align:"center",
+              v_align:"bottom",
+              h_offset:0,
+              v_offset:32,
+              space:5,
+              tmp:''
+            }
+          },
+          viewPort: {
+            enable:true,
+            outof:"pause",
+            visible_area:"80%"
+          },
+          responsiveLevels:[1200,992,768,480],
+          visibilityLevels:[1200,992,768,480],
+          gridwidth:[1180,1024,778,480],
+          gridheight:[590,500,400,300],
+          lazyType:"none",
+          parallax: {
+            type:"mouse",
+            origo:"slidercenter",
+            speed:2000,
+            levels:[2,3,4,5,6,7,12,16,10,25,47,48,49,50,51,55],
+            type:"mouse",
+          },
+          shadow:0,
+          spinner:"off",
+          stopLoop:"off",
+          stopAfterLoops:-1,
+          stopAtSlide:-1,
+          shuffle:"off",
+          autoHeight:"off",
+          hideThumbsOnMobile:"off",
+          hideSliderAtLimit:0,
+          hideCaptionAtLimit:0,
+          hideAllCaptionAtLilmit:0,
+          debugMode:false,
+          fallbacks: {
+            simplifyAll:"off",
+            nextSlideOnWindowFocus:"off",
+            disableFocusListener:false,
+          }
+        });
+      }
+    }); /*ready*/
+
+// custom js
+// fb code
+
+
+
+// function checkLoginState() {
+//   FB.getLoginStatus(function(response) {
+//     statusChangeCallback(response);
+//   });
+// }
+
+
+
+
+
+
+var cusFirstName = $('#signup_first_name').val();
+var cusLastName;
+var cusEmail;
+var cusMbl;
+var cusLandline;
+var nicNmbr;
+var cusAddress1;
+var cusAddress2;
+var cusCity;
+var cusPass;
+var cusCnfrmPass;
+
+// $('#signup_form').submit(function (e) {
+//   // body...
+//   e.preventDefault();
+//   console.log(cusFirstName);
+// })
+$('#signup_form').submit(function(e) {
+
+
+  e.preventDefault();
+  // console.log('submit has been executed');
+  /* validation */
+    // $("#signup_form").validate({
+    //     rules:
+    //     {
+    //         reg_user_first_name: {
+    //             required: true,
+    //             minlength: 3
+    //         },
+    //         reg_user_pass: {
+    //             required: true,
+    //             minlength: 8,
+    //             maxlength: 15
+    //         },
+    //         reg_user_con_pass: {
+    //             required: true,
+    //             equalTo: '#reg_user_con_pass'
+    //         },
+    //         reg_user_email: {
+    //             required: true,
+    //             email: true
+    //         },
+    //     },
+    //     messages:
+    //     {
+    //         reg_user_first_name: "Enter a Valid Username",
+    //         reg_user_pass:{
+    //             required: "Provide a Password",
+    //             minlength: "Password Needs To Be Minimum of 8 Characters"
+    //         },
+    //         reg_user_email: "Enter a Valid Email",
+    //         reg_user_con_pass:{
+    //             required: "Retype Your Password",
+    //             equalTo: "Password Mismatch! Retype"
+    //         }
+    //     },
+    //     submitHandler: submitForm
+    // });
+    /* validation */
+
+    /* form submit */
+    // function submitForm()
+    // {
+      var data = $("#signup_form").serialize();
+
+      $.ajax({
+
+        type : 'POST',
+        url  : 'register.php',
+        data : data,
+        beforeSend: function()
+        {
+          $("#signup_error").fadeOut();
+          $("#signup_sub").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
+        },
+        success :  function(data)
+        {
+          if(data==1){
+
+            $("#signup_error").fadeIn(1000, function(){
+
+              $("#signup_error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; Sorry email already taken !</div>');
+
+              $("#signup_sub").html('<span class="glyphicon glyphicon-log-in" ></span> &nbsp; Create Account');
+
+            });
+            console.log(data)
+            console.log('user already exist');
+
+          }
+
+          // when user successfully registered
+          else if(data=="registered") {
+            $("#signup_sub").html('Signing Up');
+            setTimeout($('#signup_form').fadeOut(500, function () {
+            sessionStorage.setItem('status','loggedIn'); 
+                      location.replace("http://localhost/services.technohost.biz/services.technohost.biz/index.html");
+                    }), 1000)
+          }
+
+          else{
+
+            $("#signup_error").fadeIn(1000, function(){
+
+              $("#signup_error").html('<div class="alert alert-danger"><span class="glyphicon glyphicon-info-sign"></span> &nbsp; '+data+' !</div>');
+
+              $("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account');
+
+            });
+            console.log(data)                    
+            console.log('error found')
+
+
+          }
+        }
+      });
+      return false;
+    });
+
+  </script> 
+
+
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
+  (Load Extensions only on Local File Systems ! 
+  The following part can be removed on Server for On Demand Loading) -->  
+  <script type="text/javascript" src="scripts/extensions/revolution.extension.actions.min.js"></script>
+  <script type="text/javascript" src="scripts/extensions/revolution.extension.carousel.min.js"></script>
+  <script type="text/javascript" src="scripts/extensions/revolution.extension.kenburn.min.js"></script>
+  <script type="text/javascript" src="scripts/extensions/revolution.extension.layeranimation.min.js"></script>
+  <script type="text/javascript" src="scripts/extensions/revolution.extension.migration.min.js"></script>
+  <script type="text/javascript" src="scripts/extensions/revolution.extension.navigation.min.js"></script>
+  <script type="text/javascript" src="scripts/extensions/revolution.extension.parallax.min.js"></script>
+  <script type="text/javascript" src="scripts/extensions/revolution.extension.slideanims.min.js"></script>
+  <script type="text/javascript" src="scripts/extensions/revolution.extension.video.min.js"></script>
+
+
+
+</div>
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+
+// $('#signup_form').submit(function()
+// {
+//     /* validation */
+//     // $("#register-form").validate({
+//     //     rules:
+//     //     {
+//     //         user_name: {
+//     //             required: true,
+//     //             minlength: 3
+//     //         },
+//     //         password: {
+//     //             required: true,
+//     //             minlength: 8,
+//     //             maxlength: 15
+//     //         },
+//     //         cpassword: {
+//     //             required: true,
+//     //             equalTo: '#password'
+//     //         },
+//     //         user_email: {
+//     //             required: true,
+//     //             email: true
+//     //         },
+//     //     },
+//     //     messages:
+//     //     {
+//     //         user_name: "Enter a Valid Username",
+//     //         password:{
+//     //             required: "Provide a Password",
+//     //             minlength: "Password Needs To Be Minimum of 8 Characters"
+//     //         },
+//     //         user_email: "Enter a Valid Email",
+//     //         cpassword:{
+//     //             required: "Retype Your Password",
+//     //             equalTo: "Password Mismatch! Retype"
+//     //         }
+//     //     },
+//     //     submitHandler: submitForm
+//     // });
+//     /* validation */
+
+//     /* form submit */
+//     function submitForm()
+//     {
+//         var data = $("#signup_form").serialize();
+
+//         $.ajax({
+
+//             type : 'POST',
+//             url  : 'register.php',
+//             data : data,
+//             beforeSend: function()
+//             {
+//                 $("#error").fadeOut();
+//                 $("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
+//             },
+//             success :  function(data)
+//             {
+//                 if(data==1){
+
+//                     // $("#error").fadeIn(1000, function(){
+
+
+//                     //     $("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; Sorry email already taken !</div>');
+
+//                     //     $("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account');
+
+//                     // });
+//                     console.log(data)
+//                     console.log('user already exist');
+
+//                 }
+//                 else if(data=="registered")
+//                 {
+
+//                     // $("#btn-submit").html('Signing Up');
+//                     // setTimeout('$(".form-signin").fadeOut(500, function(){ $(".signin-form").load("successreg.php"); }); ',5000);
+//                     console.log(data)                    
+//                     console.log('form has been successfully submitted');
+
+//                 }
+//                 else{
+
+//                     // $("#error").fadeIn(1000, function(){
+
+//                     //     $("#error").html('<div class="alert alert-danger"><span class="glyphicon glyphicon-info-sign"></span> &nbsp; '+data+' !</div>');
+
+//                     //     $("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account');
+
+//                     // });
+//                     console.log(data)                    
+//                     console.log('error found')
+
+
+//                 }
+//             }
+//         });
+//         return false;
+//     }
+//     /* form submit */
+
+// });
+
+</script>
+
+
+

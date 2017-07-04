@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+
+<!-- Mirrored from www.vasterad.com/themes/reneva/blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2017 23:13:00 GMT -->
+<head>
+
+<!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<title>Reneva</title>
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/main.css?v=1">
+<link rel="stylesheet" href="css/colors/blue.css" id="colors">
+
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+
+<div class="container">
+  <div class="modal fade" id="ser-not-vailable-popup" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sorry!</h4>
+        </div>
+        <div class="modal-body">
+          <p>We will launch this service soon</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<!-- Header
+================================================== -->
+<div class="container">
+
+  <div class="row">
+    <div class="header">
+
+      <div class="col-md-3 col-sm-12">
+        <div id="logo">
+          <a href="index.html"><img src="images/logo.png" alt=""></a>
+        </div>
+      </div>
+      <div class="col-md-9 col-sm-12">
+        <ul class="header-widget">
+          <li>
+            <i class="sl sl-icon-call-in"></i>
+            <div class="widget-content">
+              <span class="title">Questions?</span>
+              <span class="data">(123) 123-456 </span>
+            </div>
+          </li>
+
+          <li>
+            <i class="sl sl-icon-location"></i>
+            <div class="widget-content">
+              <span class="title">Our Office</span>
+              <span class="data">45 Park Avenue, NY</span>
+            </div>
+          </li>
+
+          <li class="with-btn"><a href="wizard.php" class="button border medium">Request Service</a></li>
+        </ul>
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+  <div class="col-md-12">
+
+    <!-- Mobile Navigation -->
+    <div class="menu-responsive">
+      <i class="fa fa-reorder menu-trigger"></i>
+      <i class="fa fa-search search-trigger"></i>
+          <form action="#" method="get" class="responsive-search">
+            <input type="text" onblur="if(this.value=='')this.value='to search type and hit enter';" onfocus="if(this.value=='to search type and hit enter')this.value='';" value="to search type and hit enter" />
+          </form>
+    </div>
+    
+    <!-- Main Navigation -->
+    <nav id="navigation">
+
+      <!-- Search Form -->
+      <div class="search-container">
+            <form action="#" method="get">
+              <input type="text" name="s" id="s" onblur="if(this.value=='')this.value='to search type and hit enter';" onfocus="if(this.value=='to search type and hit enter')this.value='';" value="to search type and hit enter" />
+            </form>
+            <div class="close-search"><a class="fa fa-times" href="#"></a></div>
+      </div>
+
+      <ul class="menu" id="responsive">
+
+        <li class="dropdown" >
+          <a href="index.html" >Home</a>
+        </li>
+
+
+              <li class="dropdown" >
+                <a href="services-1.html">Services</a>
+                <ul>
+                  <li><a href="services-1.html">All Services</a></li>
+                  <li><a href="bike-tuneup.html">Bike Tune-up</a></li>
+                  <li><a href="ac-repair.html">AC Repair</a></li>
+                  <li><a href="electrician.html">Electrician</a></li>
+                  <li><a href="plumbing.html">Plumbing</a></li>
+                  <li><a href="home-app-repair.html">Home Appliances Repair</a></li>
+
+                </ul>
+              </li>
+
+              <li class="dropdown upcoming_services">
+                <a href="services-1.html">Upcoming Services</a>
+                <ul>
+                  <li><a href="#ser-not-vailable-popup" class="driver_counter" data-toggle="modal" >Driver</a></li>
+                  <li><a href="#ser-not-vailable-popup" class="beautician_counter" data-toggle="modal" >Beautician</a></li>
+                  <li><a href="#ser-not-vailable-popup" class="maid_counter" data-toggle="modal" >Maid</a></li>
+                  <li>
+                    <a href="#ser-not-vailable-popup" class="cook_counter" data-toggle="modal" >
+                    Cook</a>
+                  </li>               
+                </ul>
+              </li>
+
+
+        <li class="dropdown" >
+          <a href="blog.html">Blog</a>
+        </li>
+
+        <li><a href="contact.html">contact</a></li>
+
+                <li><a href="about.html">About Us</a></li>
+              <li class="" id="nav-reg-tab"><a href="signup.html" >Register</a></li>
+
+      </ul>
+    </nav>
+  </div>
+  </div>
+</div>
+
+<div id="titlebar">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <h2>Login</h2>
+        
+        <!-- Breadcrumbs -->
+        <nav id="breadcrumbs">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>login</li>
+          </ul>
+        </nav>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container margin-top-30 margin-bottom-30"> 
+  <div class="row"> 
+    <div id="login" class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3"> 
+      <!-- <div class="">  -->
+      <h2  class="text-center">LOGIN</h2>
+      <span id="login_error"></span>
+      <form id="login_form" method="post">  
+          <div class="form-group">
+            <div class="col-xs-12">
+              <input type="email" name="login_email" placeholder="Email" required="required" class="form-control">     
+            </div>
+            <div class="col-xs-12">
+              <input type="password" name="login_pass" placeholder="Password" required class="form-control">
+            </div>
+            <div class="col-xs-12">
+              <a href="signup.html" class="signup-link">Create an account</a>
+            </div>
+            <div class="login-btn text-center col-xs-12">
+              <button type="submit" id="btn_login" name="btn_login" class="btn btn-lg btn-primary btn-theme-bg">Login</button>
+            </div>
+          </div>
+
+        </form>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+  <form>
+
+
+</form>
+
+
+
+<div id="footer">
+  <!-- Main -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 col-sm-6">
+        <h4>About</h4>
+        <p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+        <ul class="social-icons margin-bottom-30">
+          <li style="margin-right: 30px"><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+          <li style="margin-right: 30px"><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+          <!-- <li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li> -->
+          <div class="clearfix"></div>
+        </ul>
+      </div>
+
+      <div class="col-md-2 col-md-offset-1  col-sm-6">
+        <h4>Helpful Links</h4>
+        <ul class="footer-links">
+          <li><a href="services-1.html">Services</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">contact</a></li>          
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>    
+
+      <div class="col-md-3  col-sm-12 col-xs-12">
+        <h4>contact</h4>
+        <div class="text-widget">
+          <span>12345 Little Lonsdale St, Melbourne</span> <br>
+          Phone: <span>(123) 123-456 </span><br>
+          Fax: <span>(123) 123-456</span> <br>
+          E-Mail:<span> office@example.com </span><br>
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- Copyright -->
+    <div class="row">
+      <div class="col-md-12">
+        <div class="copyrights">©  Copyright 2016 by <a href="#">Reneva</a>. All Rights Reserved.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div id="backtotop"><a href="#"></a></div>
+
+
+<!-- Scripts
+================================================== -->
+		<script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="scripts/superfish.js"></script>
+		<script type="text/javascript" src="scripts/hoverIntent.js"></script>
+		<script type="text/javascript" src="scripts/jquery.flexslider-min.js"></script>
+		<script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="scripts/counterup.min.js"></script>
+		<script type="text/javascript" src="scripts/waypoints.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.themepunch.tools.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.themepunch.revolution.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.isotope.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.sticky-kit.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.twentytwenty.js"></script>
+		<script type="text/javascript" src="scripts/jquery.event.move.js"></script>
+		<script type="text/javascript" src="scripts/jquery.photogrid.js"></script>
+		<script type="text/javascript" src="scripts/jquery.tooltips.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.pricefilter.js"></script>
+		<script type="text/javascript" src="scripts/jquery.stacktable.js"></script>
+		<script type="text/javascript" src="scripts/jquery.contact-form.js"></script>
+		<script type="text/javascript" src="scripts/jquery.jpanelmenu.js"></script>
+		<script type="text/javascript" src="scripts/custom.js"></script>
+		<script type="text/javascript" src="scripts/upcoming_services.js"></script>
+<script type="text/javascript" src="scripts/extensions/main.js"></script>
+
+
+<!-- REVOLUTION SLIDER SCRIPT -->
+<script type="text/javascript">
+  var tpj=jQuery;     
+  var revapi4;
+  tpj(document).ready(function() {
+    if(tpj("#rev_slider_4_1").revolution == undefined){
+      revslider_showDoubleJqueryError("#rev_slider_4_1");
+    }else{
+      revapi4 = tpj("#rev_slider_4_1").show().revolution({
+        sliderType:"standard",
+        jsFileLocation:"scripts/",
+        sliderLayout:"auto",
+        dottedOverlay:"none",
+        delay:9000,
+        navigation: {
+          keyboardNavigation:"off",
+          keyboard_direction: "horizontal",
+          mouseScrollNavigation:"off",
+          onHoverStop:"on",
+          touch:{
+            touchenabled:"on",
+            swipe_threshold: 75,
+            swipe_min_touches: 1,
+            swipe_direction: "horizontal",
+            drag_block_vertical: false
+          }
+          ,
+          arrows: {
+            style:"zeus",
+            enable:true,
+            hide_onmobile:true,
+            hide_under:600,
+            hide_onleave:true,
+            hide_delay:200,
+            hide_delay_mobile:1200,
+            tmp:'<div class="tp-title-wrap"></div>',
+            left: {
+              h_align:"left",
+              v_align:"center",
+              h_offset:00,
+              v_offset:0
+            },
+            right: {
+              h_align:"right",
+              v_align:"center",
+              h_offset:00,
+              v_offset:0
+            }
+          }
+          ,
+          bullets: {
+        enable:true,
+        hide_onmobile:true,
+        hide_under:600,
+        style:"hermes",
+        hide_onleave:true,
+        hide_delay:200,
+        hide_delay_mobile:1200,
+        direction:"horizontal",
+        h_align:"center",
+        v_align:"bottom",
+        h_offset:0,
+        v_offset:32,
+        space:5,
+        tmp:''
+          }
+        },
+        viewPort: {
+          enable:true,
+          outof:"pause",
+          visible_area:"80%"
+      },
+      responsiveLevels:[1200,992,768,480],
+      visibilityLevels:[1200,992,768,480],
+      gridwidth:[1180,1024,778,480],
+      gridheight:[590,500,400,300],
+      lazyType:"none",
+      parallax: {
+        type:"mouse",
+        origo:"slidercenter",
+        speed:2000,
+        levels:[2,3,4,5,6,7,12,16,10,25,47,48,49,50,51,55],
+        type:"mouse",
+      },
+      shadow:0,
+      spinner:"off",
+      stopLoop:"off",
+      stopAfterLoops:-1,
+      stopAtSlide:-1,
+      shuffle:"off",
+      autoHeight:"off",
+      hideThumbsOnMobile:"off",
+      hideSliderAtLimit:0,
+      hideCaptionAtLimit:0,
+      hideAllCaptionAtLilmit:0,
+      debugMode:false,
+      fallbacks: {
+        simplifyAll:"off",
+        nextSlideOnWindowFocus:"off",
+        disableFocusListener:false,
+      }
+    });
+    }
+  }); /*ready*/
+
+  // custom js
+  $('#login_form').submit(function (e) {
+  e.preventDefault();
+
+  // serialize the form 
+  var data = $("#login_form").serialize();
+
+// make ajax requeset
+  $.ajax({
+
+   type : 'POST',
+   url  : 'login_process.php',
+   data : data,
+   beforeSend: function()
+   { 
+
+    // when signin is in process
+    $("#login_error").fadeOut();
+    $("#btn_login").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
+    console.log('before send is fired')
+  },
+  success :  function(response) {      
+  console.log(response)
+
+// when login successfull
+   if(response=="ok"){
+      sessionStorage.setItem('status','loggedIn') 
+
+      $("#btn_login").html('<img src="ajax-loader.gif" /> &nbsp; Signing In ...');
+    //   setTimeout($('#ser_form').fadeOut(500, function () {        
+    //     location.replace("http://localhost/services.technohost.biz/services.technohost.biz/index.html");
+    // }), 1000 )    
+                 setTimeout($('#login_form').fadeOut(500, function () {
+                      // body...
+                      location.replace("http://localhost/services.technohost.biz/services.technohost.biz/index.html");
+                    }), 1000)
+
+      console.log('login successful');
+    }
+// when error found
+    else{
+      $("#login_error").fadeIn(1000, function(){      
+    $("#login_error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; '+response+' !</div>');
+           $("#btn_login").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Sign In');
+         });
+    console.log(response);
+    console.log('error found', response)
+  }
+}
+});
+  return false;
+})
+
+
+</script> 
+
+
+<!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
+  (Load Extensions only on Local File Systems ! 
+  The following part can be removed on Server for On Demand Loading) -->  
+<script type="text/javascript" src="scripts/extensions/revolution.extension.actions.min.js"></script>
+<script type="text/javascript" src="scripts/extensions/revolution.extension.carousel.min.js"></script>
+<script type="text/javascript" src="scripts/extensions/revolution.extension.kenburn.min.js"></script>
+<script type="text/javascript" src="scripts/extensions/revolution.extension.layeranimation.min.js"></script>
+<script type="text/javascript" src="scripts/extensions/revolution.extension.migration.min.js"></script>
+<script type="text/javascript" src="scripts/extensions/revolution.extension.navigation.min.js"></script>
+<script type="text/javascript" src="scripts/extensions/revolution.extension.parallax.min.js"></script>
+<script type="text/javascript" src="scripts/extensions/revolution.extension.slideanims.min.js"></script>
+<script type="text/javascript" src="scripts/extensions/revolution.extension.video.min.js"></script>
+
+
+</div>
+</body>
+</html>

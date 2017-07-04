@@ -7,6 +7,15 @@ $dbname = "services_technohost";
 $tableName = "service_data";
 $data = '';
 
+// if(isset($POST['data_service']))
+// {
+// 	$service = $POST['data_service'];
+// }
+
+if(isset($_POST['data_service']))
+{
+    $service = $_POST['data_service'];
+}
 
 if(isset($_POST['data_city']))
 {

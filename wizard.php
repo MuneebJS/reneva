@@ -229,57 +229,44 @@
 
 
 					<ul class="menu" id="responsive">
-
-
-
 						<li class="dropdown" >
-
 							<a href="index.html" class="current">Home</a>
-
-
-
 						</li>
 
 
+							<li class="dropdown" >
+								<a href="services-1.html">Services</a>
+								<ul>
+									<li><a href="services-1.html">All Services</a></li>
+									<li><a href="bike-tuneup.html">Bike Tune-up</a></li>
+									<li><a href="ac-repair.html">AC Repair</a></li>
+									<li><a href="electrician.html">Electrician</a></li>
+									<li><a href="plumbing.html">Plumbing</a></li>
+									<li><a href="home-app-repair.html">Home Appliances Repair</a></li>
 
+								</ul>
+							</li>
+
+							<li class="dropdown upcoming_services">
+								<a href="services-1.html">Upcoming Services</a>
+								<ul>
+									<li><a href="#ser-not-vailable-popup" class="driver_counter" data-toggle="modal" >Driver</a></li>
+									<li><a href="#ser-not-vailable-popup" class="beautician_counter" data-toggle="modal" >Beautician</a></li>
+									<li><a href="#ser-not-vailable-popup" class="maid_counter" data-toggle="modal" >Maid</a></li>
+									<li>
+										<a href="#ser-not-vailable-popup" class="cook_counter" data-toggle="modal" >
+										Cook</a>
+									</li>								
+								</ul>
+							</li>
 
 
 						<li class="dropdown" >
-
-							<a href="#">Services</a>
-
-							<ul>
-
-								<li><a href="services-1.html">Services List 1</a></li>
-
-								<li><a href="services-2.html">Services List 2</a></li>
-
-								<li><a href="single-service-1.html">Single Service Page 1</a></li>
-
-								<li><a href="single-service-2.html">Single Service Page 2</a></li>
-
-							</ul>
-
-						</li>
-
-
-
-
-
-						<li class="dropdown" >
-
 							<a href="blog.html">Blog</a>
-
 						</li>
-
-
-
-						<li><a href="contact.html">Contact uS</a></li>
-
-
-
+						<li><a href="contact.html">contact</a></li>
 						<li><a href="about.html">About Us</a></li>
-
+					<li class="" id="nav-reg-tab"><a href="login.html" >Login/Register</a></li>
 
 
 				<!-- Search Icon
@@ -346,49 +333,54 @@
 
 							<optgroup label="Services">
 
-								<option class="num" value="all_residential">Bike/Car tune-ups</option>
+								<option class="num" value="all_residential">Bike tune-up</option>
 
-								<option class="num" value="10">Beauty Services</option>
+								<option class="num" value="10">AC Repair</option>
 
-								<option class="num" value="11">AC Services</option>
+								<option class="num" value="11">Electrician</option>
 
-								<option class="num" value="12">Electrician Services</option>
+								<option class="num" value="12">Plumbing</option>
 
-								<option class="num" value="13">Plumber Services</option>
-
-								<option class="num" value="14">Cab Services</option>
-
-								<option class="num" value="15">Groccery Services</option>
+								<option class="num" value="13">Home Appliances Repair</option>
 
 							</optgroup>
 
 						</select>
-
-						<select class="form-control" id="ser_form_city" name="Select a Service" placeholder="Enter Your City">
-
-							<option class="num" value="">-All-</option>
-
-							<optgroup label="City">
-
-								<option class="num" value="all_residential">Karachi</option>
-
-								<option class="num" value="10">Lahore</option>
-
-								<option class="num" value="11">Islamabad</option>
-
-							</optgroup>
-
+						</div>
+						<div class="col-md-6">
+						<select class="form-control" id="ser_form_city" name="Select a city" placeholder="Enter Your City">
+        <option class="num" value="">Please select a City</option>
+              <optgroup label="Cities">
+              <option class="num" value="all_residential">Karachi</option>
+              </optgroup>
 						</select>
-
 					</div>
 
 					<div class="col-md-6">
 
-						<input type="text" name="" id="ser_form_address" placeholder="Enter Your Address (example : A-123,Block-12,F.B.Area,Gulberg)">
+					<!-- 	<input type="text" name="" id="ser_form_address" placeholder="Enter Your Address (example : A-123,Block-12,F.B.Area,Gulberg)">
 
-						<input type="text" name="" id="ser_form_coupon" placeholder="Add Coupon ( if any )">
+					<input type="text" name="" id="ser_form_coupon" placeholder="Add Coupon ( if any )"> -->
+					<select class="form-control" id="ser_form_address" name="select address" placeholder="Enter Your City">
 
-					</div>
+					<option class="num" value="">Please Select Address</option>
+
+						<!-- <optgroup label="City"> -->
+
+							<option class="num" value="1">Address 1</option>
+
+							<option class="num" value="2">Address 2</option>
+
+							<option class="num" value="3">Address 3</option>
+
+						<!-- </optgroup> -->
+
+					</select>
+
+				</div>
+				<div class="col-md-6">
+					<input type="text" name="" id="ser_form_coupon" placeholder="Add Coupon ( if any )"> 
+				</div>
 
 				</div>
 
@@ -418,39 +410,39 @@
 
 									<li>
 
-										<!-- <inp" value="1" type="radio" name="timeSlot"/> -->
+										<input value="1" type="radio" id="time_slot_1" name="timeSlot"/>
 
-										<label for="startdate-0" class="time_slot available-slot" id="time_slot_1">07:00 - 08:00</label>
-
-									</li>
-
-									<li>
-
-										<!-- <input type="radio" name="timeSlot" value="2"/> -->
-
-										<label for="startdate-1" class="time_slot available-slot" id="time_slot_2">08:00 - 09:00</label>
+										<label for="time_slot_1" class="time_slot available-slot" >07:00 - 08:00</label>
 
 									</li>
 
 									<li>
 
-										<!-- <input type="radio" name="timeSlot" value="3"/> -->
-										<label for="startdate-1" id="time_slot_3" class="time_slot available-slot">08:00 - 09:00</label>
+										<input type="radio" id="time_slot_2" name="timeSlot" value="2"/>
 
-									</li>
-
-									<li>
-										<!-- <input type="radio" name="timeSlot" value="4"/> -->
-
-										<label for="startdate-3" class="time_slot available-slot" id="time_slot_4">10:00 - 11:00</label>
+										<label for="time_slot_2" class="time_slot available-slot">08:00 - 09:00</label>
 
 									</li>
 
 									<li>
 
-										<!-- <input type="radio" name="timeSlot" value="5"/> -->
+										<input type="radio" name="timeSlot" id="time_slot_3"  value="3"/>
+										<label for="time_slot_3" class="time_slot available-slot">08:00 - 09:00</label>
 
-										<label for="startdate-4" id="time_slot_5" class="time_slot available-slot">11:00 - 12:00</label>
+									</li>
+
+									<li>
+										<input type="radio"  id="time_slot_4" name="timeSlot" value="4"/>
+
+										<label for="time_slot_4" class="time_slot available-slot">10:00 - 11:00</label>
+
+									</li>
+
+									<li>
+
+										<input type="radio" id="time_slot_5" name="timeSlot" value="5"/>
+
+										<label for="time_slot_5"  class="time_slot available-slot">11:00 - 12:00</label>
 
 									</li>
 
@@ -466,41 +458,41 @@
 
 									<li>
 
-										<!-- <input type="radio" name="timeSlot" value="6"/> -->
+										<input type="radio"  id="time_slot_6"  name="timeSlot" value="6"/>
 
-										<label for="startdate-0" class="time_slot available-slot" id="time_slot_6">12:00 - 13:00</label>
-
-									</li>
-
-									<li>
-
-										<!-- <input type="radio" name="timeSlot" value="7"/> -->
-
-										<label for="startdate-1" id="time_slot_7" class="time_slot available-slot">13:00 - 14:00</label>
+										<label for="time_slot_6"class="time_slot available-slot" >12:00 - 13:00</label>
 
 									</li>
 
 									<li>
 
-										<!-- <input type="radio" name="timeSlot" value="8"/> -->
+										<input type="radio" id="time_slot_7"  name="timeSlot" value="7"/>
 
-										<label for="startdate-2" class="time_slot available-slot" id="time_slot_8">14:00 - 15:00</label>
-
-									</li>
-
-									<li>
-
-										<!-- <input type="radio" name="timeSlot" value="9"/> -->
-
-										<label for="startdate-3" id="time_slot_9" class="time_slot available-slot">15:00 - 16:00</label>
+										<label for="time_slot_7" class="time_slot available-slot">13:00 - 14:00</label>
 
 									</li>
 
 									<li>
 
-										<!-- <input type="radio" name="timeSlot" value="10"/> -->
+										<input type="radio" id="time_slot_8" name="timeSlot" value="8"/>
 
-										<label for="startdate-4" class="time_slot available-slot" id="time_slot_10">16:00 - 17:00</label>
+										<label for="time_slot_8" class="time_slot available-slot" >14:00 - 15:00</label>
+
+									</li>
+
+									<li>
+
+										<input type="radio"  id="time_slot_9" name="timeSlot" value="9"/>
+
+										<label for="time_slot_9" class="time_slot available-slot">15:00 - 16:00</label>
+
+									</li>
+
+									<li>
+
+										<input type="radio" id="time_slot_10" name="timeSlot" value="10"/>
+
+										<label for="time_slot_10" class="time_slot available-slot" >16:00 - 17:00</label>
 
 									</li>
 
@@ -516,41 +508,41 @@
 
 									<li>
 
-										<!-- <input type="radio" name="timeSlot" value="11"/> -->
+										<input type="radio" id="time_slot_11" name="timeSlot" value="11"/>
 
-										<label for="startdate-0" id="time_slot_11" class="time_slot available-slot">17:00 - 18:00</label>
-
-									</li>
-
-									<li>
-
-										<!-- <input type="radio" name="timeSlot" value="12"/> -->
-
-										<label for="startdate-1" class="time_slot available-slot" id="time_slot_12">18:00 - 19:00</label>
+										<label for="time_slot_11"  class="time_slot available-slot">17:00 - 18:00</label>
 
 									</li>
 
 									<li>
 
-										<!-- <input type="radio" name="timeSlot" value="13"/> -->
+										<input type="radio"  id="time_slot_12" name="timeSlot" value="12"/>
 
-										<label for="startdate-2" id="time_slot_13" class="time_slot available-slot">19:00 - 20:00</label>
-
-									</li>
-
-									<li>
-
-										<!-- <input type="radio" name="timeSlot" value="14"/> -->
-
-										<label for="startdate-3" class="time_slot available-slot" id="time_slot_14">20:00 - 21:00</label>
+										<label for="time_slot_12" class="time_slot available-slot" >18:00 - 19:00</label>
 
 									</li>
 
 									<li>
 
-										<!-- <input type="radio" name="timeSlot" value="15"/> -->
+										<input type="radio" id="time_slot_13"  name="timeSlot" value="13"/>
 
-										<label for="startdate-4" id="time_slot_15" class="time_slot available-slot">21:00 - 22:00</label>
+										<label for="time_slot_13" class="time_slot available-slot">19:00 - 20:00</label>
+
+									</li>
+
+									<li>
+
+										<input type="radio" id="time_slot_14" name="timeSlot" value="14"/>
+
+										<label for="time_slot_14"  class="time_slot available-slot" >20:00 - 21:00</label>
+
+									</li>
+
+									<li>
+
+										<input type="radio" id="time_slot_15" name="timeSlot" value="15"/>
+
+										<label for="time_slot_15"  class="time_slot available-slot">21:00 - 22:00</label>
 
 									</li>
 
@@ -561,9 +553,7 @@
 							<div class="row">
 
 								<span class="align--center pbm" id="timeslot-notavailable-text">
-
 									<i class="glyphicon glyphicon-info-sign"></i>
-
 									<a data-toggle="modal" data-target=".timeslot-modal" href="#" title="If you can't find the suitable timeslot, Click here">If you can't find the suitable timeslot, Click here</a>
 
 								</span>
@@ -594,58 +584,32 @@
 			<div class="container">
 
 				<div class="row">
+			<div class="col-md-5 col-sm-6">
+				<h4>About</h4>
+				<p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+				<ul class="social-icons margin-bottom-30">
+					<li style="margin-right: 30px"><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+					<li style="margin-right: 30px"><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+					<!-- <li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li> -->
+					<div class="clearfix"></div>
+				</ul>
+			</div>
 
-					<div class="col-md-5 col-sm-6">
-
-						<h4>About</h4>
-
-						<p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-
-						<a href="#" class="button social-btn"><i class="fa fa-facebook-official"></i> Like Us on Facebook</a>
-
-					</div>
-
-
-
-					<div class="col-md-4  col-sm-6">
-
-						<h4>Helpful Links</h4>
-
-						<ul class="footer-links">
-
-							<li><a href="#">About Us</a></li>
-
-							<li><a href="#">Press Releases</a></li>
-
-							<li><a href="#">Careers</a></li>
-
-							<li><a href="#">Services</a></li>
-
-							<li><a href="#">Projects</a></li>
-
-						</ul>
-
-
-
-						<ul class="footer-links">
-
-							<li><a href="#">In the News</a></li>
-
-							<li><a href="#">Our Blog</a></li>
-
-							<li><a href="#">Testimonials</a></li>
-
-							<li><a href="#">Contact</a></li>
-
-						</ul>
-
-					</div>		
+			<div class="col-md-2 col-md-offset-1  col-sm-6">
+				<h4>Helpful Links</h4>
+				<ul class="footer-links">
+					<li><a href="services-1.html">Services</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="contact.html">contact</a></li>					
+					<li><a href="about.html">About Us</a></li>
+				</ul>
+			</div>	s	
 
 
 
 					<div class="col-md-3  col-sm-12">
 
-						<h4>Contact Us</h4>
+						<h4>contact</h4>
 
 						<div class="text-widget">
 
@@ -994,11 +958,15 @@
     			data: {
     				date: fullDate,
     			},
+
     			success: function( result ) { 
+    				console.log('data has been send successfully');
+    				console.log(result);
     				$(".time-slot").removeClass("booked-slot");
     				$(".available-slot").removeClass("selected-slot");
-    				console.log(fullDate)
-    				console.log(result);
+    				// $("#startdate-0" ).disabled = true;
+    				// $("#startdate-0").attr('disabled',true);
+    				// console.log(fullDate)
     				var time_slot_ids = [result.split("|")]
     				console.log(time_slot_ids)
     				var newArr = time_slot_ids[0]
@@ -1008,12 +976,18 @@
     						console.log(newArr[i])
     						$("#" + newArr[i]).removeClass('available-slot');
     						$("#" + newArr[i]).addClass('booked-slot');
+    						// var timeSlotRadio = $
+    						// $("#" + newArr[i]).attr('disabled',true);
+    						// $("#" + newArr[i]).next().addClass('booked-slot')
+
+    						
     					}
     				}	
     			}
     		});        
     	}
     });
+
 
 
 // getting value of time slot
@@ -1031,7 +1005,7 @@ $('.available-slot').click(function () {
     		$(".available-slot").removeClass("selected-slot");
 			time_slot_id =  $(this).attr('id');
 			$(this).addClass('selected-slot')
-			console.log(time_slot_id);
+			// console.log(time_slot_id);
 	}
 });
 
@@ -1041,18 +1015,35 @@ $('.available-slot').click(function () {
 // submission of form
 $('#ser_form_sub').click(function (event) {
 	event.preventDefault();
+
+	// if (sessionStorage.getItem('status') != null)
+ //    //redirect to page
+	// console.log('login status checking fun is working')
+	
+	// }
+
+
+
 	var service = $('#ser_form_service').find(":selected").text();
 	var city = $('#ser_form_city').find(":selected").text();
 	var address = $("#ser_form_address").val();
 	var coupon = $("#ser_form_coupon").val();
 	var serDate = fullDate;
 	var serTime = time_slot_id;
-	console.log(service, city, address, coupon, serDate, serTime + " All are succes")
-	if (serTime == undefined) {
+	var serTime = $('input[name=timeSlot]:checked').attr('id');
+	if(sessionStorage.getItem('status') == null) {
+		console.log('user is not logged in');
+		 // setTimeout($('#').fadeOut(500, function () {        
+   //      location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
+   //  }), 1000 ) 
+   setTimeout(function () {
+   	// body...
+   	 location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
+   }, 1000)
+	}
+	else if (serTime == undefined) {
 		alert('please select time');
 		// $('#select-ser-error').text('please select a service');
-		// $("#select-ser-error").show();
-		// setTimeout(function() { $("#myElem").hide(); }, 100);
 	}
 	else if(serDate == undefined) {
 		alert('please select date');
@@ -1061,6 +1052,7 @@ $('#ser_form_sub').click(function (event) {
 		alert('please select service');
 	}
 	else {
+		console.log(service, serTime)
 			 $.ajax({
         url: "service_sub.php",
         type: "post",
@@ -1078,7 +1070,9 @@ $('#ser_form_sub').click(function (event) {
            // you will get response from your php page (what you echo or print)           
            // console.log(response)      
            // console.log('data sent successfully');
+           console.log(response);
            alert('Your form has been submitted successfully');
+           $("#" + serTime).attr('checked', false);
            $('.time_slot').removeClass('booked-slot');
            $('.time_slot').removeClass('selected-slot');
         },

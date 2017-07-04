@@ -17,6 +17,7 @@
 <!-- CSS
 ================================================== -->
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/main.css?v=1">
 <link rel="stylesheet" href="css/colors/blue.css" id="colors">
 
 <!--[if lt IE 9]>
@@ -189,8 +190,10 @@
 					</ul> -->
 				</li>
 
-				<li><a href="contact.html">Contact US</a></li>
+				<li><a href="contact.html">Contact</a></li>
 				<li><a href="about.html">About US</a></li>
+					<li class="" id="nav-reg-tab"><a href="login.html" >Login/Register</a></li>
+				
 
 			</ul>
 		</nav>
@@ -234,10 +237,15 @@
 		<div class="col-md-3">
 			<ul class="services-list sticky">
 				<li><a href="services-1.html">All Services</a></li>
-				<li><a href="single-service-2.html">Painting</a></li>
-				<li><a href="#">Repair</a></li>
-				<li><a class="active" href="#">Carpentry</a></li>
+				<li><a href="single-service-2.html">Bike Tune-up</a></li>
+				<li><a href="#">AC Repair</a></li>
+				<li><a class="active" href="#">Electrician</a></li>
 				<li><a href="#">Plumbing</a></li>
+				<li><a href="#">Driver</a></li>
+				<li><a href="#">Beautician</a></li>
+				<li><a href="#">Maid</a></li>
+				<li><a href="#">Cook</a></li>
+				<li><a href="#">Home Appliances Repair</a></li>
 			</ul>
 		</div>
 		
@@ -313,24 +321,29 @@
 	<!-- Main -->
 	<div class="container">
 		<div class="row">
-			<div class="col-md-5 col-sm-6 col-xs-12">
+			<div class="col-md-5 col-sm-6">
 				<h4>About</h4>
 				<p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-				<a href="#" class="button social-btn"><i class="fa fa-facebook-official"></i> Like Us on Facebook</a>
+				<ul class="social-icons margin-bottom-30">
+					<li style="margin-right: 30px"><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+					<li style="margin-right: 30px"><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+					<!-- <li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li> -->
+					<div class="clearfix"></div>
+				</ul>
 			</div>
 
 			<div class="col-md-2 col-md-offset-1  col-sm-6">
 				<h4>Helpful Links</h4>
 				<ul class="footer-links">
 					<li><a href="services-1.html">Services</a></li>
-					<li><a href="blog.html">Our Blog</a></li>
-					<li><a href="contact.html">Contact</a></li>					
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="contact.html">contact</a></li>					
 					<li><a href="about.html">About Us</a></li>
 				</ul>
 			</div>		
 
 			<div class="col-md-3  col-sm-12 col-xs-12">
-				<h4>Contact Us</h4>
+				<h4>contact</h4>
 				<div class="text-widget">
 					<span>12345 Little Lonsdale St, Melbourne</span> <br>
 					Phone: <span>(123) 123-456 </span><br>
@@ -358,27 +371,28 @@
 
 <!-- Scripts
 ================================================== -->
-<script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
-<script type="text/javascript" src="scripts/superfish.js"></script>
-<script type="text/javascript" src="scripts/hoverIntent.js"></script>
-<script type="text/javascript" src="scripts/jquery.flexslider-min.js"></script>
-<script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
-<script type="text/javascript" src="scripts/counterup.min.js"></script>
-<script type="text/javascript" src="scripts/waypoints.min.js"></script>
-<script type="text/javascript" src="scripts/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="scripts/jquery.themepunch.revolution.min.js"></script>
-<script type="text/javascript" src="scripts/jquery.isotope.min.js"></script>
-<script type="text/javascript" src="scripts/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript" src="scripts/jquery.sticky-kit.min.js"></script>
-<script type="text/javascript" src="scripts/jquery.twentytwenty.js"></script>
-<script type="text/javascript" src="scripts/jquery.event.move.js"></script>
-<script type="text/javascript" src="scripts/jquery.photogrid.js"></script>
-<script type="text/javascript" src="scripts/jquery.tooltips.min.js"></script>
-<script type="text/javascript" src="scripts/jquery.pricefilter.js"></script>
-<script type="text/javascript" src="scripts/jquery.stacktable.js"></script>
-<script type="text/javascript" src="scripts/jquery.contact-form.js"></script>
-<script type="text/javascript" src="scripts/jquery.jpanelmenu.js"></script>
-<script type="text/javascript" src="scripts/custom.js"></script>
+		<script type="text/javascript" src="scripts/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="scripts/superfish.js"></script>
+		<script type="text/javascript" src="scripts/hoverIntent.js"></script>
+		<script type="text/javascript" src="scripts/jquery.flexslider-min.js"></script>
+		<script type="text/javascript" src="scripts/owl.carousel.min.js"></script>
+		<script type="text/javascript" src="scripts/counterup.min.js"></script>
+		<script type="text/javascript" src="scripts/waypoints.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.themepunch.tools.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.themepunch.revolution.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.isotope.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.sticky-kit.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.twentytwenty.js"></script>
+		<script type="text/javascript" src="scripts/jquery.event.move.js"></script>
+		<script type="text/javascript" src="scripts/jquery.photogrid.js"></script>
+		<script type="text/javascript" src="scripts/jquery.tooltips.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.pricefilter.js"></script>
+		<script type="text/javascript" src="scripts/jquery.stacktable.js"></script>
+		<script type="text/javascript" src="scripts/jquery.contact-form.js"></script>
+		<script type="text/javascript" src="scripts/jquery.jpanelmenu.js"></script>
+		<script type="text/javascript" src="scripts/custom.js"></script>
+		<script type="text/javascript" src="scripts/upcoming_services.js"></script>
 
 
 <!-- Style Switcher

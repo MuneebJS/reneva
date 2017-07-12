@@ -9,8 +9,9 @@ $data = '';
 
 
 if(isset($_POST['date']))
-  {
+{
     $cal_date = $_POST['date'];
+    $service = $_POST['userSelectedService'];
 }
 
 
@@ -22,7 +23,9 @@ if (mysqli_connect_errno())
   }
 
 // $sql = "SELECT Booked_slots FROM fl_booking where date='2017-06-23 00:00:00'";
-$sql = "SELECT Booked_slots FROM service_data where date='$cal_date'";
+// $sql = "SELECT Booked_slots FROM service_data where date='$cal_date'";
+$sql = "SELECT Booked_slots FROM service_data where date='$cal_date' AND service_name = '$service'";
+// WHERE Country='Mexico' AND PostalCode ='05021';
 
 // this code work correctly for get time slots
 if ($result = mysqli_query($con, $sql))

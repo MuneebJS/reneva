@@ -2,7 +2,7 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 
-<!-- Mirrored from www.vasterad.com/themes/reneva/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2017 23:09:23 GMT -->
+<!-- Mirrored from www.vasterad.com/themes/reneva/single-project-content-left.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2017 23:10:39 GMT -->
 <head>
 
 <!-- Basic Page Needs
@@ -16,10 +16,6 @@
 
 <!-- CSS
 ================================================== -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/main.css?v=1">
 <link rel="stylesheet" href="css/colors/blue.css" id="colors">
@@ -31,45 +27,10 @@
 </head>
 
 <body>
-	<script  type="text/javascript" charset="utf-8" >
 
-		$(document).ready(function () {
-			if(sessionStorage.getItem('status') != null) {
-				console.log('session storage is not null');
-				$('#nav-reg-tab').html("<a href='#' id='logout'  onClick='logout();'>Logout</a>");
-					  // console.log('user logged out');
-					}
-					else {
-						console.log('session storage is null');
-						$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
-					}
-				})
-
-
-	</script>
 <!-- Wrapper -->
 <div id="wrapper">
-<!-- 
-<div class="container">
-  <div class="modal fade" id="ser-not-vailable-popup" role="dialog">
-    <div class="modal-dialog">
-    
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Sorry!</h4>
-        </div>
-        <div class="modal-body">
-          <p>We will launch this service soon</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</div> -->
+
 <!-- Header
 ================================================== -->
 
@@ -140,10 +101,9 @@
 
 			<ul class="menu" id="responsive">
 
-				<li>
+				<li class="dropdown" >
 					<a href="index.html">Home</a>
 				</li>
-
 
 							<li class="dropdown" >
 								<a href="services-1.html">Services</a>
@@ -159,25 +119,29 @@
 							</li>
 
 							<li class="dropdown upcoming_services">
-								<a href="upcoming_services.html">Upcoming Services</a>
+								<a href="services-1.html">Upcoming Services</a>
 								<ul>
-									<li><a href="upcoming_services.html" class="driver_counter">Driver</a>
-									</li>
-									<li><a href="upcoming_services.html" class="beautician_counter" >Beautician</a>
-									</li>
-									<li><a href="upcoming_services.html" class="maid_counter" >Maid</a></li>
-									<li><a href="upcoming_services.html" class="cook_counter">Cook</a>
+									<li><a href="#ser-not-vailable-popup" class="driver_counter" data-toggle="modal" >Driver</a></li>
+									<li><a href="#ser-not-vailable-popup" class="beautician_counter" data-toggle="modal" >Beautician</a></li>
+									<li><a href="#ser-not-vailable-popup" class="maid_counter" data-toggle="modal" >Maid</a></li>
+									<li>
+										<a href="#ser-not-vailable-popup" class="cook_counter" data-toggle="modal" >
+										Cook</a>
 									</li>								
 								</ul>
-							</li>							
+							</li>
 
-				<li>
-					<a href="blog.html">Blog</a>
+
+				<li class="dropdown" >
+					<a href="blog.html">blog</a>
 				</li>
-				<li><a href="contact.html" class="current">contact</a></li>
+
+				<li><a href="contact.html">Contact</a></li>
 				<li><a href="about.html">About US</a></li>
 					<li class="" id="nav-reg-tab""><a href="login.html" >Login/Register</a></li>
 				
+
+
 			</ul>
 		</nav>
 	</div>
@@ -189,18 +153,20 @@
 
 <!-- Titlebar
 ================================================== -->
-<div id="titlebar" class="photo-bg" style="background-image: url('images/titlebar-parallax-03.jpg')">
+<div id="titlebar">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 
-				<h2>Contact</h2>
+				<h2>Project Page</h2>
+				<!-- <span>Tagline</span> -->
 				
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs">
 					<ul>
 						<li><a href="#">Home</a></li>
-						<li>Contact</li>
+						<li><a href="#">Projects</a></li>
+						<li>Project Page</li>
 					</ul>
 				</nav>
 
@@ -210,106 +176,46 @@
 </div>
 
 
-<!-- Contact
+<!-- Content
 ================================================== -->
-
-<!-- Container / Start -->
 <div class="container">
+	<div class="row sticky-wrapper">
 
-	<div class="row">
-		<div class="col-md-12 text-center">
+			<!-- Content -->
+			<div class="col-md-4">
+				<div class="project-details sticky">
+					<h4 class="headline with-border">Project Name</h4>
+					<p>Nulla congue magna varius pellentesque.Entesque habitant morbi tristique senectus lorem et netus et malesuada fames ac turpis egestas.</p>
+					<p>Vestibulum quis ipsum ipsum. Maecenas ullamcorper nibh sed justo iaculis lacinia. Nam eu arcu facilisis, condimentum urna et, tempor erat.</p>
 
-			<!-- Google Maps -->
-			<section class="google-map-container">
-				<!-- <div id="googlemaps" class="google-map google-map-full"></div> -->
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.0800716011504!2d67.0681114150095!3d24.861114684053582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33ea2018bf931%3A0x72f62d3da2f2e090!2sPark+Avenue%2C+Shahrah-e-Faisal%2C+Karachi%2C+Pakistan!5e0!3m2!1sen!2s!4v1498208170287" width="1200" height="400" frameborder="1" style="border:1" allowfullscreen></iframe>
-			</section>
-			<!-- Google Maps / End -->
-		</div>
-	</div>
+					<ul class="details">
+						<li><span>Date:</span> 11 January 2016</li>
+						<li><span>Location:</span> London</li>
+						<li><span>Category:</span> <a href="#">Kitchens</a>, <a href="#">Carpentry</a></li>
+					</ul>
 
-	<div class="row">
+					<ul class="project-nav">
+						<li><a href="#" class="button border"><i class="fa fa-long-arrow-left"></i> Previous</a></li>
+						<li><a href="#" class="button border">Next <i class="fa fa-long-arrow-right"></i></a></li>
+					</ul>
 
-		<!-- Contact Details -->
-		<div class="col-md-3">
-			<!-- text box -->
-			<div class="sidebar-textbox">
-				<h4>Our Office</h4>
-				<span class="margin-bottom-10"> 45 Park Avenue, Apt. 303 <br>New York, NY 10016</span>
-				Phone: <span>(123) 123-456 </span> <br>
-				E-Mail: <span><a class="__cf_email__" href="http://www.vasterad.com/cdn-cgi/l/email-protection" data-cfemail="59363f3f303a3c193c21383429353c773a3634">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script></span> <br>
+				</div>
 			</div>
 
-			<ul class="social-icons margin-bottom-30">
-				<li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-				<li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
-				<!-- <li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li> -->
-				<div class="clearfix"></div>
-			</ul>
-		</div>
-
-		<!-- Contact Form -->
-		<div class="col-md-9">
-
-			<section id="contact">
-				<h4 class="headline with-border margin-top-10 margin-bottom-35">Let’s get in touch</h4>
-
-				<div id="contact-message"></div> 
-
-					<form method="post" action="" name="contactform" id="contactform" autocomplete="on">
-
-					<div class="row">
-						<div class="col-md-6">
-							<div>
-								<input name="name" type="text" id="name" placeholder="Your Name" required="required" />
-							</div>
-							
-							<div>
-								<input name="email" type="email" id="email" placeholder="Email Address" pattern="^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$" required="required" />
-							</div>
-						</div>
-						
-						<div class="col-md-6">
-							<div>
-								<input name="phone" type="tel" id="phone" size="30" placeholder="Phone number (optional)" />
-							</div>
-
-							<div>
-								<select name="subject" id="subject" required="required">
-									<option value="">Select Subject</option>
-									<option value="Painting">Bike Tune-up</option>
-									<option value="Repair">AC Repair</option>
-									<option value="Carpentry">Electrician</option>
-									<option value="Plumbing">Plumbing</option>
-									<option value="Remodeling">Beautician mnj</option>
-									<!-- <option value="Electrical">Electrical</option> -->
-									<option value="Other">Other</option>
-								</select>
-							</div>
-						</div>
-					</div>
-
-					<div>
-						<textarea name="comments" cols="40" rows="3" id="comments" placeholder="Message" spellcheck="true" required="required"></textarea>
-					</div>
-
-					<input type="submit" class="submit" id="submit" value="Submit" />
-
-					</form>
-			</section>
-		</div>
-
+			<!-- Photos -->
+			<div class="col-md-8">
+				<div class="project-photos">
+					<a href="images/single-project-01a.jpg" class="mfp-gallery img-hover" title="This is a caption"><img src="images/single-project-01.jpg" alt=""></a>
+					<a href="images/single-project-02a.jpg" class="mfp-gallery img-hover" title="Another caption"><img src="images/single-project-02.jpg" alt=""></a>
+				</div>
+			</div>
 	</div>
-
 </div>
-<!-- Container / End -->
-
 
 
 <!-- Footer
 ================================================== -->
-<div class="margin-top-45"></div>
-
+<div class="margin-top-20"></div>
 
 <div id="footer">
 	<!-- Main -->
@@ -318,18 +224,6 @@
 			<div class="col-md-5 col-sm-6">
 				<h4>About</h4>
 				<p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-<!-- 				<ul class="footer-social-links list-inline ">
-					<li>
-						<a href="#">
-						<i class="fa fa-facebook-official  fa-3x fb" aria-hidden="strue"></i>						
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<i class="fa fa-twitter-square  fa-3x twr" aria-hidden="true"></i>
-						</a>
-					</li>
-				</ul> -->
 				<ul class="social-icons margin-bottom-30">
 					<li style="margin-right: 30px"><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
 					<li style="margin-right: 30px"><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
@@ -354,7 +248,7 @@
 					<span>12345 Little Lonsdale St, Melbourne</span> <br>
 					Phone: <span>(123) 123-456 </span><br>
 					Fax: <span>(123) 123-456</span> <br>
-					E-Mail:<span> <a class="__cf_email__" href="http://www.vasterad.com/cdn-cgi/l/email-protection" data-cfemail="cfa0a9a9a6acaa8faab7aea2bfa3aae1aca0a2">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script> </span><br>
+					E-Mail:<span> <a class="__cf_email__" href="http://www.vasterad.com/cdn-cgi/l/email-protection" data-cfemail="f9969f9f909a9cb99c81989489959cd79a9694">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script> </span><br>
 				</div>
 			</div>
 
@@ -399,33 +293,6 @@
 		<script type="text/javascript" src="scripts/jquery.jpanelmenu.js"></script>
 		<script type="text/javascript" src="scripts/custom.js"></script>
 		<script type="text/javascript" src="scripts/upcoming_services.js"></script>
-
-
-<!-- Google Maps -->
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
-<script src="scripts/jquery.gmaps.min.js"></script>
-
-<script type="text/javascript">
-	(function($){
-		$(document).ready(function(){
-
-			$('#googlemaps').gMap({
-				maptype: 'ROADMAP',
-				scrollwheel: false,
-				zoom: 13,
-				markers: [
-					{
-						address: 'New York, 45 Park Avenue', // Your Adress Here
-						html: '<strong>Our Office</strong><br>45 Park Avenue, Apt. 303 </br>New York, NY 10016 ',
-						popup: true,
-					}
-				],
-			});
-
-		   });
-
-	})(this.jQuery);
-</script>
 
 
 <!-- Style Switcher
@@ -513,18 +380,8 @@
 
 </div>
 <!-- Wrapper / End -->
-<script  type="text/javascript">
-	
-
-	function logout() {
-	console.log('logout fired');
-	$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
-	sessionStorage.clear();
-	location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
-}
-</script>
 
 </body>
 
-<!-- Mirrored from www.vasterad.com/themes/reneva/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2017 23:09:28 GMT -->
+<!-- Mirrored from www.vasterad.com/themes/reneva/single-project-content-left.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2017 23:10:39 GMT -->
 </html>

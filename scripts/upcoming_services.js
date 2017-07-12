@@ -1,6 +1,20 @@
+// $(document).ready(function () {
+//     // body...
+//     if(sessionStorage.getItem('status') != null) {
+//         console.log('session storage is not null');
+//         $('.nav-reg-tab').html('hello world');
+//     }
+//     else {
+//         console.log('session storage is null');
+//     }
+// })
+
+
+
 // this fun will send class name to php file
 // we will give class name in argument
 function runCounter (className) {
+    console.log(className)
     $.ajax({
     type: 'post',
     url: 'upcoming_ser_counter.php',
@@ -16,7 +30,7 @@ function runCounter (className) {
 $('.upcoming_services').on('click', function(e) {  
 	console.log('upcoming service class event fired')
 		var serClassName = e.target.className;
-		// console.log(serClassName);
+		console.log(serClassName);
         runCounter(serClassName);
 });
 
@@ -35,4 +49,22 @@ $("#cook_counter").click(function(){
         runCounter('cook_counter');
 });
 
+
+// alert('hello');
+
+// signup code
+
+
+
+// $('#demo').click(function () {
+//     // body...
+//    var value = $('#nav-reg-tab');
+//    console.log(value);
+// })
+function get() {
+    // body...
+    console.log('fired');
+       var value = $('#nav-reg-tab');
+   console.log(value);
+}
 

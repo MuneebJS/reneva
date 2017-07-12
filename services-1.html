@@ -32,14 +32,28 @@
 
 <body>
 <!-- Wrapper -->
+	<script  type="text/javascript" charset="utf-8" >
+
+		$(document).ready(function () {
+			if(sessionStorage.getItem('status') != null) {
+				console.log('session storage is not null');
+				$('#nav-reg-tab').html("<a href='#' id='logout'  onClick='logout();'>Logout</a>");
+					  // console.log('user logged out');
+					}
+					else {
+						console.log('session storage is null');
+						$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
+					}
+				})
+
+
+	</script>
 <div id="wrapper">
 
-<div class="container">
+<!-- <div class="container">
   <div class="modal fade" id="ser-not-vailable-popup" role="dialog">
     <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
+          <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Sorry!</h4>
@@ -54,7 +68,7 @@
       
     </div>
   </div>
-</div>
+</div> -->
 <!-- Header
 ================================================== -->
 
@@ -103,7 +117,6 @@
 	<div class="row">
 	<div class="col-md-12">
 
-		<!-- Mobile Navigation -->
 		<div class="menu-responsive">
 			<i class="fa fa-reorder menu-trigger"></i>
 			<i class="fa fa-search search-trigger"></i>
@@ -143,16 +156,17 @@
 							</li>
 
 							<li class="dropdown upcoming_services">
-								<a href="services-1.html">Upcoming Services</a>
+								<a href="upcoming_services.html">Upcoming Services</a>
 								<ul>
-									<li><a href="#ser-not-vailable-popup" class="driver_counter" data-toggle="modal" >Driver</a></li>
-									<li><a href="#ser-not-vailable-popup" class="beautician_counter" data-toggle="modal" >Beautician</a></li>
-									<li><a href="#ser-not-vailable-popup" class="maid_counter" data-toggle="modal" >Maid</a></li>
-									<li>
-										<a href="#ser-not-vailable-popup" class="cook_counter" data-toggle="modal" >
-											Cook</a></li>								
-										</ul>
+									<li><a href="upcoming_services.html" class="driver_counter">Driver</a>
 									</li>
+									<li><a href="upcoming_services.html" class="beautician_counter" >Beautician</a>
+									</li>
+									<li><a href="upcoming_services.html" class="maid_counter" >Maid</a></li>
+									<li><a href="upcoming_services.html" class="cook_counter">Cook</a>
+									</li>								
+								</ul>
+							</li>
 
 
 				<li class="dropdown" >
@@ -161,7 +175,7 @@
 
 				<li><a href="contact.html">Contact</a></li>
 				<li><a href="about.html">About US</a></li>
-					<li class="" id="nav-reg-tab"><a href="login.html" >Login/Register</a></li>
+					<li class="" id="nav-reg-tab""><a href="login.html" >Login/Register</a></li>
 				
 
 
@@ -182,13 +196,13 @@
 			<div class="col-md-12">
 
 				<h2>Services</h2>
-				<span>Reliable and Professional</span>
+				<span>We will launch these services soon</span>
 				
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs">
 					<ul>
 						<li><a href="#">Home</a></li>
-						<li>Services</li>
+						<li>Upcoming Services</li>
 					</ul>
 				</nav>
 
@@ -204,14 +218,9 @@
 	<div class="row">
 
 		<div class="col-md-4 col-sm-6">
-			<!-- Service -->
 			<div class="service">
 				<img src="images/rsz-services (5).jpg" alt="">
 				<div class="service-overlay">
-					<!-- <i class="reneva icon-7"></i> -->
-			<!-- 		<i>
-						<img src="https://png.icons8.com/bike-path/win10/16" title="Bike Path" width="30" height="30">
-					</i> -->
 				<i class="fa fa-motorcycle" aria-hidden="true"></i>					
 					<h4>Bike Tune-up</h4>
 					<div class="hidden-part">
@@ -255,8 +264,7 @@
 		<div class="row">
 			
 
-		<div class="col-md-4 col-sm-6">
-			<!-- Service -->
+		<div class="col-md-4 col-md-offset-2 col-sm-6">
 			<div class="service">
 				<img src="images/service-04.jpg" alt="">
 				<div class="service-overlay">
@@ -270,12 +278,12 @@
 			</div>
 		</div>
 
-				<div class="col-md-4 col-sm-6">
-			<!-- Service -->
+			<div class="col-md-4 col-sm-6">
 			<div class="service">
 				<img src="images/rsz-services (2).jpg" alt="">
 				<div class="service-overlay">
-				<i class="fa fa-television" aria-hidden="true"></i>
+				<!-- <i class="fa fa-television" aria-hidden="true"></i> -->
+				<i class="reneva icon-4"></i>
 					
 					<h4>Home Appliances Repair</h4>
 					<div class="hidden-part">
@@ -286,8 +294,7 @@
 			</div>
 		</div>
 
-		<div class="col-md-4 col-sm-6">
-			<!-- Service -->
+<!-- 		<div class="col-md-4 col-sm-6">
 			<div class="service">
 				<img src="images/rsz-services (1).jpg" alt="">
 				<div class="service-overlay">
@@ -304,7 +311,6 @@
 
 
 		<div class="col-md-4 col-sm-6">
-			<!-- Service -->
 			<div class="service">
 				<img src="images/rsz-services (4).jpg" alt="">
 				<div class="service-overlay">
@@ -319,7 +325,6 @@
 		</div>
 
 		<div class="col-md-4 col-sm-6">
-			<!-- Service -->
 			<div class="service">
 				<img src="images/maid.gif" alt="">
 				<div class="service-overlay">
@@ -348,7 +353,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 
 
@@ -547,6 +552,18 @@
 
 </div>
 <!-- Wrapper / End -->
+
+<script  type="text/javascript">
+	
+
+	function logout() {
+	console.log('logout fired');
+	$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
+	sessionStorage.clear();
+	location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
+}
+</script>
+
 
 </body>
 

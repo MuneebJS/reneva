@@ -14,7 +14,8 @@
 
 .ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all {
 
-    background: #000;
+    /*background: #000;*/
+    background: #8f1a7f;
 
     color: #fff;
 
@@ -32,7 +33,7 @@
 
 a.ui-state-default.ui-state-active {
 
-    background:#0081db;
+    background:#8f1a7f;
 
     color:#fff;
 
@@ -49,6 +50,10 @@ a.ui-state-default.ui-state-active {
   width: 100%;
 
   max-width: 134px;
+
+  border: 1px solid #c5c5c5;
+
+  border-radius: 2px;
 
 }
 
@@ -168,7 +173,7 @@ a.ui-state-default.ui-state-active {
 
 input[type="radio"]:checked + label {
 
-  color: #0081db !important;
+  color: #8f1a7f !important;
 
 }
 
@@ -180,7 +185,9 @@ button.btn.btn-success.text-center.custom {
 
     text-align: center;
 
-    background: #000;
+    /*background: #000;*/
+    background: #8f1a7f;
+
 
     border: none;
 
@@ -197,6 +204,7 @@ button.btn.btn-success.text-center.custom {
     margin-bottom: 25px;
 
     margin-top: 25px;
+    border-radius: 0px;
 
 }
 
@@ -266,6 +274,34 @@ ul.footer-social-links li .twr:hover{
   color: #0282db;
 }
 
-#nav-reg-tab{
+#nav-reg-tab, .nav-reg-tab{
   float: right;
+}
+h2 {
+  color: #333!important;
+}
+h1, h3 {
+  color:  #8f1a7f!important;
+}
+
+.theme_blue_color {
+  color: #6F7096!important;
+}
+
+.theme_black_color {
+  color:  #333!important;
+}
+
+
+form#ser_form {
+    box-shadow: 5px -5px 3px -5px rgba(0, 0, 0, 0.72);
+    padding: 30px;
+    border: 0px;
+    background: #f8f8f8;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+form#ser_form .form-control {
+  border-radius: 0px;
 }

@@ -32,16 +32,31 @@
 
 <body>
 <!-- Wrapper -->
+	<script  type="text/javascript" charset="utf-8" >
+
+		$(document).ready(function () {
+			if(sessionStorage.getItem('status') != null) {
+				console.log('session storage is not null');
+				$('#nav-reg-tab').html("<a href='#' id='logout'  onClick='logout();'>Logout</a>");
+					  // console.log('user logged out');
+					}
+					else {
+						console.log('session storage is null');
+						$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
+					}
+				})
+
+
+	</script>
 <div id="wrapper">
 
 <!-- Header
 ================================================== -->
 
-<div class="container">
+<!-- <div class="container">
   <div class="modal fade" id="ser-not-vailable-popup" role="dialog">
     <div class="modal-dialog">
     
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -57,7 +72,7 @@
       
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- Header
 	================================================== -->
@@ -149,7 +164,7 @@
 								</ul>
 							</li>
 
-							<li class="dropdown upcoming_services">
+<!-- 							<li class="dropdown upcoming_services">
 								<a href="services-1.html">Upcoming Services</a>
 								<ul>
 									<li><a href="#ser-not-vailable-popup" class="driver_counter" data-toggle="modal" >Driver</a></li>
@@ -160,8 +175,19 @@
 										Cook</a>
 									</li>								
 								</ul>
+							</li> -->
+							<li class="dropdown upcoming_services">
+								<a href="upcoming_services.html">Upcoming Services</a>
+								<ul>
+									<li><a href="upcoming_services.html" class="driver_counter">Driver</a>
+									</li>
+									<li><a href="upcoming_services.html" class="beautician_counter" >Beautician</a>
+									</li>
+									<li><a href="upcoming_services.html" class="maid_counter" >Maid</a></li>
+									<li><a href="upcoming_services.html" class="cook_counter">Cook</a>
+									</li>								
+								</ul>
 							</li>
-
 				
 
 						<li class="dropdown" >
@@ -169,7 +195,7 @@
 						</li>
 						<li><a href="contact.html">contact</a></li>
 						<li><a href="about.html">About US</a></li>
-					<li class="" id="nav-reg-tab"><a href="login.html" >Login/Register</a></li>
+					<li class="" id="nav-reg-tab""><a href="login.html" >Login/Register</a></li>
 						
 
 					</ul>
@@ -218,10 +244,10 @@
 					<li><a class="active" href="electrician.html">Electrician</a></li>
 					<li><a href="plumbing.html">Plumbing</a></li>
 					<li><a href="home-app-repair.html">Home Appliances Repair</a></li>					
-					<li><a href="#ser-not-vailable-popup" class="driver_counter" data-toggle="modal" >Driver</a></li>
+<!-- 					<li><a href="#ser-not-vailable-popup" class="driver_counter" data-toggle="modal" >Driver</a></li>
 					<li><a href="#ser-not-vailable-popup" class="maid_counter" data-toggle="modal" >Beautician</a></li>
 					<li><a href="#ser-not-vailable-popup" class="beautician_counter" data-toggle="modal" >Maid</a></li>
-					<li><a href="#ser-not-vailable-popup" class="cook_counter" data-toggle="modal" >Cook</a></li>
+					<li><a href="#ser-not-vailable-popup" class="cook_counter" data-toggle="modal" >Cook</a></li> -->
 				</ul>
 			</div>
 	
@@ -234,14 +260,14 @@
 					<div class="col-md-6">
 
 						<a href="images/single-service-03.jpg" class="img-hover mfp-gallery margin-bottom-10"><img src="images/single-service-03.jpg" alt=""></a>
-						<h4 class="headline with-border margin-bottom-20">Why Choose Us</h4>
+						<h3 class="headline with-border margin-bottom-20">Why Choose Us</h3>
 						<p>Our home improvement professionals are experienced at building custom cabinets and mantels for any room, to the dimensions and in the style that you need. </p>
 						<p>Experienced carpentry handyman with an average of 10 years' experience will walk you through every step of the process. Our goal is your complete satisfaction.</p>
 					</div>
 
 					<div class="col-md-6">
 						<a href="images/single-service-04.jpg" class="img-hover mfp-gallery margin-bottom-10"><img src="images/single-service-04.jpg" alt=""></a>
-						<h4 class="headline with-border margin-bottom-20">Jobs We Specialize In</h4>
+						<h3 class="headline with-border margin-bottom-20">Jobs We Specialize In</h3>
 						<ul class="list-1 alt">
 							<li>Custom home framing,</li>
 							<li>Interior and exterior door and window installation</li>
@@ -579,6 +605,17 @@
 
 </div>
 <!-- Wrapper / End -->
+
+<script  type="text/javascript">
+	
+
+	function logout() {
+	console.log('logout fired');
+	$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
+	sessionStorage.clear();
+	location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
+}
+</script>
 
 </body>
 

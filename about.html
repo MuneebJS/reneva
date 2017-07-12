@@ -31,14 +31,31 @@
 </head>
 
 <body>
+
+
+	<script  type="text/javascript" charset="utf-8" >
+
+		$(document).ready(function () {
+			if(sessionStorage.getItem('status') != null) {
+				console.log('session storage is not null');
+				$('#nav-reg-tab').html("<a href='#' id='logout'  onClick='logout();'>Logout</a>");
+					  // console.log('user logged out');
+					}
+					else {
+						console.log('session storage is null');
+						$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
+					}
+				})
+
+
+	</script>
 <!-- Wrapper -->
 <div id="wrapper">
 
-<div class="container">
+<!-- <div class="container">
   <div class="modal fade" id="ser-not-vailable-popup" role="dialog">
     <div class="modal-dialog">
     
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -54,7 +71,7 @@
       
     </div>
   </div>
-</div>
+</div> -->
 <!-- Header
 ================================================== -->
 <div class="container">
@@ -140,7 +157,7 @@
 								</ul>
 							</li>
 
-							<li class="dropdown upcoming_services">
+<!-- 							<li class="dropdown upcoming_services">
 								<a href="services-1.html">Upcoming Services</a>
 								<ul>
 									<li><a href="#ser-not-vailable-popup" class="driver_counter" data-toggle="modal" >Driver</a></li>
@@ -150,9 +167,22 @@
 										<a href="#ser-not-vailable-popup" class="cook_counter" data-toggle="modal" >
 											Cook</a></li>								
 										</ul>
+									</li> -->
+							<li class="dropdown upcoming_services">
+								<a href="upcoming_services.html">Upcoming Services</a>
+								<ul>
+									<li><a href="upcoming_services.html" class="driver_counter">Driver</a>
 									</li>
+									<li><a href="upcoming_services.html" class="beautician_counter" >Beautician</a>
+									</li>
+									<li><a href="upcoming_services.html" class="maid_counter" >Maid</a></li>
+									<li><a href="upcoming_services.html" class="cook_counter">Cook</a>
+									</li>								
+								</ul>
+							</li>									
 
 
+									
 				<li class="dropdown" >
 					<a href="blog.html">Blog</a>
 				</li>
@@ -160,7 +190,7 @@
 				<li><a href="contact.html">Contact</a></li>
 
                 <li><a href="about.html" class="current">About Us</a></li>
-               	<li class="" id="nav-reg-tab"><a href="login.html" >Login/Register</a></li>
+               	<li class="" id="nav-reg-tab""><a href="login.html" >Login/Register</a></li>
 
 				<!-- Search Icon
 				<li class="search"><a href="#"><i class="fa fa-search"></i></a></li> -->
@@ -408,6 +438,16 @@
 		});
 		}
 	});	/*ready*/
+
+	
+
+	function logout() {
+	console.log('logout fired');
+	$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
+	sessionStorage.clear();
+	location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
+}
+
 </script>	
 
 

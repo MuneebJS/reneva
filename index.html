@@ -37,16 +37,58 @@
 
 	<body>
 		<!-- Wrapper -->
+		<script  type="text/javascript" charset="utf-8" >
+			// $(document).ready(function () {
+			// 	if(sessionStorage.getItem('status') != null) {
+			// 		// console.log('session storage is not null');
+			// 		$('#nav-reg-tab').html('<a href="#" onClick="logout();">Logout</a>');
+			// 		  // console.log('user logged out');
+			// 		}
+			// 		else {
+			// 			console.log('session storage is null');
+			// 		}
+			// 	})
+// $('#logout').click(function () {
+// 	// body...
+// 			console.log('logout fired');
+// 			$('#nav-reg-tab').attr('id', 'logout');
+// 			$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
+// 			sessionStorage.clear();
+// 			location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
+// })
+		// function logout() {
+		// 	console.log('logout fired');
+		// 	$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
+		// 	sessionStorage.clear();
+		// 	location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
+
+		// 	}
+
+			$(document).ready(function () {
+				if(sessionStorage.getItem('status') != null) {
+					// console.log('session storage is not null');
+					$('#nav-reg-tab').html("<a href='#' id='logout'  onClick='logout();'>Logout</a>");
+					  // console.log('user logged out');
+					}
+					else {
+						// console.log('session storage is null');
+						$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
+					}
+				})
+
+
+		</script>
+
+
 		<div id="wrapper">
 
 	<!-- Header
 		================================================== -->
 
-		<div class="container">
+<!-- 		<div class="container">
 			<div class="modal fade" id="ser-not-vailable-popup" role="dialog">
 				<div class="modal-dialog">
 
-					<!-- Modal content-->
 					<div class="modal-content">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -62,7 +104,7 @@
 
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="container">
 
@@ -82,7 +124,7 @@
 								<div class="widget-content">
 									<span class="title">Questions?</span>
 									<span class="data">0300 2498447 </span>
-									<span class="data">0300 2498447 </span>
+									<!-- <span class="data">0300 2498447 </span> -->
 								</div>
 							</li>
 
@@ -150,7 +192,7 @@
 								</ul>
 							</li>
 
-							<li class="dropdown upcoming_services">
+<!-- 							<li class="dropdown upcoming_services">
 								<a href="services-1.html">Upcoming Services</a>
 								<ul>
 									<li><a href="#ser-not-vailable-popup" class="driver_counter" data-toggle="modal" >Driver</a></li>
@@ -159,6 +201,18 @@
 									<li>
 										<a href="#ser-not-vailable-popup" class="cook_counter" data-toggle="modal" >
 										Cook</a>
+									</li>								
+								</ul>
+							</li> -->
+							<li class="dropdown upcoming_services">
+								<a href="upcoming_services.html">Upcoming Services</a>
+								<ul>
+									<li><a href="upcoming_services.html" class="driver_counter">Driver</a>
+									</li>
+									<li><a href="upcoming_services.html" class="beautician_counter" >Beautician</a>
+									</li>
+									<li><a href="upcoming_services.html" class="maid_counter" >Maid</a></li>
+									<li><a href="upcoming_services.html" class="cook_counter">Cook</a>
 									</li>								
 								</ul>
 							</li>
@@ -171,7 +225,7 @@
 									<li><a href="contact.html">Contact</a></li>
 
 									<li><a href="about.html">About Us</a></li>
-									<li class="" id="nav-reg-tab"><a href="login.html" >Login/Register</a></li>
+									<li id="nav-reg-tab"><a href="login.html" >Login/Register</a></li>
 
 
 			<!-- Search Icon
@@ -252,7 +306,7 @@
 					data-responsive_offset="on">
 
 					<!-- Caption Content -->
-					<div class="caption-title"> Beauty Services</div>
+					<div class="caption-title"> Beaunty Services</div>
 					<div class="caption-text"> Our online Beauty Rooms create a luxury beauty experience you can enjoy every day.  We offer everything from quick-fix facials to total hair design - all tailored  to your features, mood, and lifestyle by our Beauty Experts.</div>
 					<a href="wizard.php" class="button medium">Request Service</a>
 				</div>
@@ -260,7 +314,7 @@
 
 			<!-- Slide  -->
 			<li data-index="rs-3" data-transition="fadefromtop" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
-
+d
 				<!-- Background -->
 				<img src="images/slide-ac.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
 
@@ -288,6 +342,65 @@
 		</li>
 
 
+						<!-- Slide  -->
+				<li data-index="rs-4" data-transition="fadefrombottom" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
+
+					<!-- Background -->
+					<img src="images/slide-plumbing.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+
+					<!-- Caption-->
+					<div class="tp-caption tp-shape tp-shapewrapper custom-caption tp-resizeme rs-parallaxlevel-0" 
+					id="slide-4-layer-4" 
+					data-x="['left','left','left','left']" data-hoffset="['0']" 
+					data-y="['middle','middle','middle','middle']" data-voffset="['0']" 
+					data-width="520"
+					data-height="auto"
+					data-whitespace="nowrap"
+					data-transform_idle="o:1;"	
+					data-transform_in="y:0;opacity:0;s:1000;e:Power2.easeOutExpo;s:400;e:Power2.easeOutExpo" 
+					data-transform_out="" 
+					data-mask_in="x:0px;y:[20%];s:inherit;e:inherit;" 
+					data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+					data-start="1000" 
+					data-responsive_offset="on">
+
+					<!-- Caption Content -->
+					<div class="caption-title">Plumbing</div>
+					<div class="caption-text"> Our online Beauty Rooms create a luxury beauty experience you can enjoy every day.  We offer everything from quick-fix facials to total hair design - all tailored  to your features, mood, and lifestyle by our Beauty Experts.</div>
+					<a href="wizard.php" class="button medium">Request Service</a>
+				</div>
+			</li>
+
+
+
+				<!-- Slide  -->
+				<li data-index="rs-5" data-transition="fadefrombottom" data-slotamount="default"  data-easein="Power4.easeInOut" data-easeout="Power4.easeInOut" data-masterspeed="1000"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="800" data-fsslotamount="7" data-saveperformance="off">
+
+					<!-- Background -->
+					<img src="images/slide-home-app.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="10" class="rev-slidebg" data-no-retina>
+
+					<!-- Caption-->
+					<div class="tp-caption tp-shape tp-shapewrapper custom-caption tp-resizeme rs-parallaxlevel-0" 
+					id="slide-5-layer-5" 
+					data-x="['left','left','left','left']" data-hoffset="['0']" 
+					data-y="['middle','middle','middle','middle']" data-voffset="['0']" 
+					data-width="520"
+					data-height="auto"
+					data-whitespace="nowrap"
+					data-transform_idle="o:1;"	
+					data-transform_in="y:0;opacity:0;s:1000;e:Power2.easeOutExpo;s:400;e:Power2.easeOutExpo" 
+					data-transform_out="" 
+					data-mask_in="x:0px;y:[20%];s:inherit;e:inherit;" 
+					data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" 
+					data-start="1000" 
+					data-responsive_offset="on">
+
+					<!-- Caption Content -->
+					<div class="caption-title">Home Appliances Repair</div>
+					<div class="caption-text"> Our online Beauty Rooms create a luxury beauty experience you can enjoy every day.  We offer everything from quick-fix facials to total hair design - all tailored  to your features, mood, and lifestyle by our Beauty Experts.</div>
+					<a href="wizard.php" class="button medium">Request Service</a>
+				</div>
+			</li>
 	</ul>
 	<div class="tp-static-layers"></div>
 
@@ -304,7 +417,7 @@
 
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="headline centered">Featured Services</h3>
+					<h3 class="headline centered theme_black_color">Featured Services</h3>
 				</div>
 			</div>
 
@@ -339,7 +452,7 @@
 					</a>
 				</div>
 
-				<div class="col-md-4 col-sm-6">
+				<div class="col-md-4 col-md-offset-2 col-sm-6">
 					<!-- Service -->
 					<a href="plumbing.html" class="featured-service">
 						<!-- <i class="fa fa-users" aria-hidden="true"></i> -->
@@ -359,53 +472,42 @@
 						<p>We can repair your home appliances</p>
 					</a>
 				</div>
-<!-- <div class="upcoming_services"> -->
 	
-<!-- <div class="driver-counter"> -->
-	
-				<div class="col-md-4 col-sm-6">
-					<!-- Service -->
+<!-- 				<div class="col-md-4 col-sm-6">
 					<a href="#ser-not-vailable-popup" data-toggle="modal" class="featured-service">
-						<!-- <i class="fa fa-users" aria-hidden="true"></i> -->
 						<i class="fa fa-car" aria-hidden="true"></i>
 						<h4>Driver</h4>
 						<p id="driver_counter">Well trained Driver are available</p>
 					</a>
-				</div>
-<!-- </div> -->
+				</div> -->
+
 				
 
 
-				<div class="col-md-4 col-sm-6">
-					<!-- Service -->
+<!-- 				<div class="col-md-4 col-sm-6">
 					<a href="#ser-not-vailable-popup" data-toggle="modal" class="featured-service beautician_counter">
 						<i class="fa fa-users" aria-hidden="true"></i>
-						<!-- <i class="fa fa-paint-brush" aria-hidden="true"></i> -->
 						<h4>BEAUTY SERVICES</h4>
 						<p id="beautician_counter">Because you need time for yourself.</p>
 					</a>
-				</div>
+				</div> -->
 
-				<div class="col-md-4 col-sm-6">
-					<!-- Service -->
+<!-- 				<div class="col-md-4 col-sm-6">
 					<a href="#ser-not-vailable-popup" data-toggle="modal" class="featured-service maid_counter">
-						<!-- <i class="fa fa-users" aria-hidden="true"></i> -->
 						<i class="fa fa-male" aria-hidden="true"></i>
 						<h4>Maid</h4>
 						<p id="maid_counter">Well trained Maid are available</p>
 					</a>
-				</div>
+				</div> -->
 
-
+<!-- 
 				<div class="col-md-4 col-sm-6">
-					<!-- Service -->
 					<a href="#ser-not-vailable-popup" data-toggle="modal" class="featured-service cook_counter">
-						<!-- <i class="fa fa-users" aria-hidden="true"></i> -->
 						<i class="fa fa-cutlery" aria-hidden="true"></i>
 						<h4>Cook</h4>
 						<p id="cook_counter">Well trained Cook are available</p>
 					</a>
-				</div>
+				</div> -->
 				</div>
 
 
@@ -421,7 +523,7 @@
 
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="headline centered with-border margin-bottom-0">All Stages of The Renovation</h3>
+					<h3 class="headline centered with-border margin-bottom-0 theme_black_color">All Stages of The Renovation</h3>
 				</div>
 			</div>
 
@@ -509,7 +611,7 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-12">
-								<h3 class="headline centered with-border margin-bottom-30">FEATURED ON</h3>
+								<h3 class="headline centered with-border margin-bottom-30 theme_black_color">FEATURED ON</h3>
 							</div>
 						</div>
 
@@ -611,6 +713,7 @@
 		<script type="text/javascript" src="scripts/jquery.jpanelmenu.js"></script>
 		<script type="text/javascript" src="scripts/custom.js"></script>
 		<script type="text/javascript" src="scripts/upcoming_services.js"></script>
+		<script type="text/javascript" src="scripts/signup.js"></script>
 
 
 		<!-- REVOLUTION SLIDER SCRIPT -->
@@ -717,6 +820,23 @@
 					});
 				}
 			});	/*ready*/
+
+
+// 	$('#logout').click(function () {
+// 	// body...
+// 			console.log('logout fired');
+// 			$('#nav-reg-tab').attr('id', 'logout');
+// 			$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
+// 			sessionStorage.clear();
+// 			location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
+		function logout() {
+			console.log('logout fired');
+			$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
+			sessionStorage.clear();
+			location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
+
+			}
+// })
 		</script>	
 
 

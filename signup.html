@@ -35,91 +35,31 @@
 </head>
 
 <body>
-  <!-- Wrapper -->
-  <!-- facebook sdk -->
 
-<!-- <script>
-  fbAsyncInit = function() {
-    FB.init({
-      appId      : '828264817339370',
-      xfbml      : true,
-      version    : 'v2.9'
-    });
-    FB.AppEvents.logPageView();
-    FB.getLoginStatus(function(response) {
-      // we can play with response object
-      // see more in documentation
-    statusChangeCallback(response);
-    // console.log(response);
-});
-
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-
-function statusChangeCallback(response) {
-    console.log('statusChangeCallback');
-    console.log(response);
-    // The response object is returned with a status field that lets the
-    // app know the current login status of the person.
-    // Full docs on the response object can be found in the documentation
-    // for FB.getLoginStatus().
-    if (response.status === 'connected') {
-      // Logged into your app and Facebook.
-      testAPI();
-      console.log('status change response')
-
-    } else {
-      // The person is not logged into your app or we are unable to tell.
-      // document.getElementById('status').innerHTML = 'Please log ' +
-      //   'into this app.';
-    }
-  }
-
-// This function will work on login button
-  function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    // statusChangeCallback(response);
-    if(response == "connected") {
-      console.log('you are already login');
-      // let the brought to the home page
-      // TODO: i'LL write the code here for above
-    }
-    else {
-      console.log('you are not connected');
-    }
-  });
-}
-
-function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      // console.log('Successful login for: ' + response.name);
-      console.log(response.email);
-      // document.getElementById('status').innerHTML =
-      //   'Thanks for logging in, ' + response.name + '!';
-    });
-  }
+  <script>
 
 
-</script> -->
 
-<!-- codex code -->
+    $(document).ready(function () {
+      if(sessionStorage.getItem('status') != null) {
+        console.log('session storage is not null');
+        $('#nav-reg-tab').html("<a href='#' id='logout' onClick='logout();'>Logout</a>");
+            // console.log('user logged out');
+          }
+          else {
+            console.log('session storage is null');
+            $('#nav-reg-tab').html('<a href="login.html">Login</a>');
+          }
+        })
 
-<!-- <button onClick="saveUserData()">  click</button> -->
-<script>
-  var fbUserId;
-  var fbUserFirstName;
-  var fbUserLastName;
-  var fbUserEmail;
-  var fbUserGender;
-  window.fbAsyncInit = function() {
+
+
+    var fbUserId;
+    var fbUserFirstName;
+    var fbUserLastName;
+    var fbUserEmail;
+    var fbUserGender;
+    window.fbAsyncInit = function() {
     // FB JavaScript SDK configuration and setup
     FB.init({
       appId      : '828264817339370', // FB App ID
@@ -134,11 +74,16 @@ function testAPI() {
             //display user data
             getFbUserData();
             saveUserData();
+            sessionStorage.setItem('status', 'loggedInWithFb');
+            // location.replace("http://localhost/services.technohost.biz/services.technohost.biz/index.html");
+            document.getElementById('fbLink').setAttribute("onclick","fbLogout()");
+            document.getElementById('fbLink').innerHTML = 'Logout from Facebook';
+
             // console.log(getFbUserData());
           }
         });
   };
-
+// should be commented
 // Load the JavaScript SDK asynchronously
 (function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -155,10 +100,11 @@ function fbLogin() {
             // Get and display the user profile data
             getFbUserData();
             saveUserData();
+            
           } else {
             console.log('User cancelled login or did not fully authorize.');
 
-          }
+          }       
         }, {scope: 'email'});
 }
 
@@ -174,54 +120,50 @@ function getFbUserData(){
       fbUserLastName = response.last_name;
       fbUserEmail = response.email;
       fbUserGender = response.gender;
-        // console.log(fbUserEmail)
-      });
+      sessionStorage.setItem('status','loggedInWithFb') 
+      sessionStorage.setItem('Email', fbUserEmail);
+
+    });
 }
 
 // Logout from facebook
 function fbLogout() {
+  console.log('fb logout fired');
+    sessionStorage.clear();
+    location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
   FB.logout(function() {
+    console.log('fb.logout fired');
     document.getElementById('fbLink').setAttribute("onclick","fbLogin()");
     document.getElementById('fbLink').innerHTML = 'Login';
-    // document.getElementById('userData').innerHTML = '';
-    // document.getElementById('status').innerHTML = 'You have successfully logout from Facebook.';
-    console.log('You have successfully logout from Facebook.');
+
   });
 }
 
 function saveUserData(userData){
   console.log('saveUserData fired')
-//     $.post('login_with_fb.php',
-//     {
-      // oauth_provider:'facebook',
-//       userData: JSON.stringify(userData)},
-//       //  function(data) { 
-//       //   return true; 
-//       // });
-
-$.ajax({
-  oauth_provider:'facebook',
-  type: 'post',
-  url: 'login_with_fb.php',
-  data: {
-    id: fbUserId,
-    firstName: fbUserFirstName,
-    lastName: fbUserLastName,
-    email: fbUserEmail,
-    gender: fbUserEmail
-  },
-  success: function( result ) { 
+  $.ajax({
+    oauth_provider:'facebook',
+    type: 'post',
+    url: 'login_with_fb.php',
+    data: {
+      id: fbUserId,
+      firstName: fbUserFirstName,
+      lastName: fbUserLastName,
+      email: fbUserEmail,
+      gender: fbUserEmail
+    },
+    success: function( result ) { 
     // console.log(result);
     if(result  == 1) {
       console.log('This email is already taken')
     }
-    else if(result  ==  "registered")
-    {
+    else if(result  ==  "registered") {
+      console.log('user has been registered');
       $("#fbLink").html('Signing Up');
       setTimeout($('#signup_form').fadeOut(500, function () {
-                // body...
-                location.replace("http://localhost/services.technohost.biz/services.technohost.biz/index.html");
-              }), 1000)
+        console.log('location should replace');
+      location.replace("http://localhost/services.technohost.biz/services.technohost.biz/index.html");
+      }), 1000)
 
     }
 
@@ -236,8 +178,6 @@ $.ajax({
 
 
 <div id="wrapper">
-
-
   <div class="container">
     <div class="modal fade" id="ser-not-vailable-popup" role="dialog">
       <div class="modal-dialog">
@@ -372,7 +312,8 @@ $.ajax({
               <li><a href="contact.html">contact</a></li>
 
               <li><a href="about.html">About Us</a></li>
-              <li class="" id="nav-reg-tab"><a href="login.html" >Login</a></li>
+              <li id="nav-reg-tab"><a href="login.html" >Login</a></li>
+              <!-- <li class="nav-reg-tab""><a href="login.html" >Login</a></li> -->
 
             </ul>
           </nav>
@@ -428,31 +369,72 @@ $.ajax({
                   <option class="num" value="0302">0302</option>
                   <option class="num" value="0303">0303</option>
                   <option class="num" value="0304">0304</option>
-                  <option class="num" value="0305">0300</option>
-                  <option class="num" value="0300">0300</option>
-                  <option class="num" value="0300">0300</option>
-                  <option class="num" value="0300">0300</option>
-                  <option class="num" value="0300">0300</option>
-                  <option class="num" value="0300">0300</option>
-                  <option class="num" value="0300">0300</option>
-                  <option class="num" value="0300">0300</option>
-                  <option class="num" value="0300">0300</option>
-                  <option class="num" value="0300">0300</option>
-                  <option class="num" value="0300">0300</option>
-                  <option class="num" value="0300">0300</option>
-                </optgroup>
+                  <option class="num" value="0305">0305</option>
+                  <option class="num" value="0300">0306</option>
+                  <option class="num" value="0300">0307</option>
+                  <option class="num" value="0300">0308</option>
+                  <option class="num" value="0300">0309</option>
+                  </optgroup>
+                  <optgroup label="Zong">
+                  <option class="num" value="0300">0310</option>
+                  <option class="num" value="0300">0311</option>
+                  <option class="num" value="0300">0312</option>
+                  <option class="num" value="0300">0313</option>
+                  <option class="num" value="0300">0314</option>
+                  <option class="num" value="0300">0315</option>
+                  <option class="num" value="0300">0316</option>
+                  <option class="num" value="0301">0317</option>
+                  <option class="num" value="0302">0318</option>
+                  <option class="num" value="0303">0319</option>
+                  </optgroup>
+                  <optgroup label="Warid">
+                  <option class="num" value="0304">0320</option>
+                  <option class="num" value="0305">0321</option>
+                  <option class="num" value="0300">0322</option>
+                  <option class="num" value="0300">0323</option>
+                  <option class="num" value="0300">0324</option>
+                  <option class="num" value="0300">0325</option>
+                  <option class="num" value="0300">0326</option>
+                  <option class="num" value="0300">0327</option>
+                  <option class="num" value="0300">0328</option>
+                  <option class="num" value="0300">0329</option>
+                  </optgroup>
+                  <optgroup label="Ufone">
+                  <option class="num" value="0300">0330</option>
+                  <option class="num" value="0300">0331</option>
+                  <option class="num" value="0300">0332</option>
+                  <option class="num" value="0300">0333</option>
+                  <option class="num" value="0300">0334</option>
+                  <option class="num" value="0300">0335</option>
+                  <option class="num" value="0301">0336</option>
+                  <option class="num" value="0302">0337</option>
+                  <option class="num" value="0303">0338</option>
+                  <option class="num" value="0304">0339</option>
+                  </optgroup>
+                  <optgroup label="Telenor">
+                  <option class="num" value="0305">0340</option>
+                  <option class="num" value="0300">0341</option>
+                  <option class="num" value="0300">0342</option>
+                  <option class="num" value="0300">0343</option>
+                  <option class="num" value="0300">0344</option>
+                  <option class="num" value="0300">0345</option>
+                  <option class="num" value="0300">0346</option>
+                  <option class="num" value="0300">0347</option>
+                  <option class="num" value="0300">0348</option>
+                  <option class="num" value="0300">0349</option>
+                  </optgroup>
               </select>
             </div>
 
             <div class="col-xs-8 col-sm-9">
-              <input type="text" name="mbl_nmbr" id="mbl_nmbr" required="required" class="form-control input-lg" placeholder="Mobile" required>
+              <input type="text" name="mbl_nmbr" id="mbl_nmbr" pattern=".{7,}" required="required" title="Mobile number must be 7 characters long" class="form-control input-lg" placeholder="Mobile" required>
             </div>
 
             <div class="col-xs-12">
               <input type="text" id="landline_nmbr" name="landline_nmbr" class="form-control input-lg" placeholder="landline number">
             </div>
             <div class="col-xs-12">
-              <input type="text" id="nic_nmbr" name="nic_nmbr" class="form-control input-lg" placeholder="NIC number">
+              <input type="text" id="nic_nmbr" name="nic_nmbr"  pattern=".{13,}" required="required" title="NIC number must be 13 characters long" class="form-control input-lg" placeholder="NIC number">
             </div>
 
             <div class="col-xs-12">
@@ -488,17 +470,11 @@ $.ajax({
         <!-- <div id="status"></div> -->
 
         <!-- Facebook login or logout button -->
-        <div style="
-  /*        margin-top:   10px;*/
-          text-align:   center; 
-        "> 
-        <button type="button" data-button-type="continue_with" class="btn" style="
+        <div style="text-align:   center; "> 
+        <button type="button" class="btn" style="
         background: #4080FF; 
-        /*padding-top: 10px;*/
-        margin:   10px auto ;
-
-        ">  
-            <a href=""   onclick="fbLogin()" id="fbLink" style="color:  #fff">Login with facebook</a>
+        margin:   10px auto ;">  
+            <a href="" onclick="fbLogin()" id="fbLink" style="color:  #fff">Login with facebook</a>
         </button>
         </div>
 
@@ -558,7 +534,6 @@ $.ajax({
   </div>
 </div>
 
-
 <div id="backtotop"><a href="#"></a></div>
 
 
@@ -585,6 +560,7 @@ $.ajax({
   <script type="text/javascript" src="scripts/jquery.contact-form.js"></script>
   <script type="text/javascript" src="scripts/jquery.jpanelmenu.js"></script>
   <script type="text/javascript" src="scripts/custom.js"></script>
+  <script type="text/javascript" src="scripts/signup.js"></script>
 
 
   <!-- REVOLUTION SLIDER SCRIPT -->
@@ -702,131 +678,34 @@ $.ajax({
 //     statusChangeCallback(response);
 //   });
 // }
+ 
 
 
 
 
 
-
-var cusFirstName = $('#signup_first_name').val();
-var cusLastName;
-var cusEmail;
-var cusMbl;
-var cusLandline;
-var nicNmbr;
-var cusAddress1;
-var cusAddress2;
-var cusCity;
-var cusPass;
-var cusCnfrmPass;
-
-// $('#signup_form').submit(function (e) {
-//   // body...
-//   e.preventDefault();
-//   console.log(cusFirstName);
-// })
-$('#signup_form').submit(function(e) {
+// var cusFirstName = $('#signup_first_name').val();
+// var cusLastName;
+// var cusEmail;
+// var cusMbl;
+// var cusLandline;
+// var nicNmbr;
+// var cusAddress1;
+// var cusAddress2;
+// var cusCity;
+// var cusPass;
+// var cusCnfrmPass;
 
 
-  e.preventDefault();
-  // console.log('submit has been executed');
-  /* validation */
-    // $("#signup_form").validate({
-    //     rules:
-    //     {
-    //         reg_user_first_name: {
-    //             required: true,
-    //             minlength: 3
-    //         },
-    //         reg_user_pass: {
-    //             required: true,
-    //             minlength: 8,
-    //             maxlength: 15
-    //         },
-    //         reg_user_con_pass: {
-    //             required: true,
-    //             equalTo: '#reg_user_con_pass'
-    //         },
-    //         reg_user_email: {
-    //             required: true,
-    //             email: true
-    //         },
-    //     },
-    //     messages:
-    //     {
-    //         reg_user_first_name: "Enter a Valid Username",
-    //         reg_user_pass:{
-    //             required: "Provide a Password",
-    //             minlength: "Password Needs To Be Minimum of 8 Characters"
-    //         },
-    //         reg_user_email: "Enter a Valid Email",
-    //         reg_user_con_pass:{
-    //             required: "Retype Your Password",
-    //             equalTo: "Password Mismatch! Retype"
-    //         }
-    //     },
-    //     submitHandler: submitForm
-    // });
-    /* validation */
+  
 
-    /* form submit */
-    // function submitForm()
-    // {
-      var data = $("#signup_form").serialize();
+  function logout() {
+  console.log('logout fired');
+  $('#nav-reg-tab').html('<a href="login.html">Login</a>');
+  sessionStorage.clear();
+  location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
+}
 
-      $.ajax({
-
-        type : 'POST',
-        url  : 'register.php',
-        data : data,
-        beforeSend: function()
-        {
-          $("#signup_error").fadeOut();
-          $("#signup_sub").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
-        },
-        success :  function(data)
-        {
-          if(data==1){
-
-            $("#signup_error").fadeIn(1000, function(){
-
-              $("#signup_error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; Sorry email already taken !</div>');
-
-              $("#signup_sub").html('<span class="glyphicon glyphicon-log-in" ></span> &nbsp; Create Account');
-
-            });
-            console.log(data)
-            console.log('user already exist');
-
-          }
-
-          // when user successfully registered
-          else if(data=="registered") {
-            $("#signup_sub").html('Signing Up');
-            setTimeout($('#signup_form').fadeOut(500, function () {
-            sessionStorage.setItem('status','loggedIn'); 
-                      location.replace("http://localhost/services.technohost.biz/services.technohost.biz/index.html");
-                    }), 1000)
-          }
-
-          else{
-
-            $("#signup_error").fadeIn(1000, function(){
-
-              $("#signup_error").html('<div class="alert alert-danger"><span class="glyphicon glyphicon-info-sign"></span> &nbsp; '+data+' !</div>');
-
-              $("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account');
-
-            });
-            console.log(data)                    
-            console.log('error found')
-
-
-          }
-        }
-      });
-      return false;
-    });
 
   </script> 
 
@@ -852,112 +731,6 @@ $('#signup_form').submit(function(e) {
 
 
 
-<script type="text/javascript">
-
-// $('#signup_form').submit(function()
-// {
-//     /* validation */
-//     // $("#register-form").validate({
-//     //     rules:
-//     //     {
-//     //         user_name: {
-//     //             required: true,
-//     //             minlength: 3
-//     //         },
-//     //         password: {
-//     //             required: true,
-//     //             minlength: 8,
-//     //             maxlength: 15
-//     //         },
-//     //         cpassword: {
-//     //             required: true,
-//     //             equalTo: '#password'
-//     //         },
-//     //         user_email: {
-//     //             required: true,
-//     //             email: true
-//     //         },
-//     //     },
-//     //     messages:
-//     //     {
-//     //         user_name: "Enter a Valid Username",
-//     //         password:{
-//     //             required: "Provide a Password",
-//     //             minlength: "Password Needs To Be Minimum of 8 Characters"
-//     //         },
-//     //         user_email: "Enter a Valid Email",
-//     //         cpassword:{
-//     //             required: "Retype Your Password",
-//     //             equalTo: "Password Mismatch! Retype"
-//     //         }
-//     //     },
-//     //     submitHandler: submitForm
-//     // });
-//     /* validation */
-
-//     /* form submit */
-//     function submitForm()
-//     {
-//         var data = $("#signup_form").serialize();
-
-//         $.ajax({
-
-//             type : 'POST',
-//             url  : 'register.php',
-//             data : data,
-//             beforeSend: function()
-//             {
-//                 $("#error").fadeOut();
-//                 $("#btn-submit").html('<span class="glyphicon glyphicon-transfer"></span> &nbsp; sending ...');
-//             },
-//             success :  function(data)
-//             {
-//                 if(data==1){
-
-//                     // $("#error").fadeIn(1000, function(){
-
-
-//                     //     $("#error").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span> &nbsp; Sorry email already taken !</div>');
-
-//                     //     $("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account');
-
-//                     // });
-//                     console.log(data)
-//                     console.log('user already exist');
-
-//                 }
-//                 else if(data=="registered")
-//                 {
-
-//                     // $("#btn-submit").html('Signing Up');
-//                     // setTimeout('$(".form-signin").fadeOut(500, function(){ $(".signin-form").load("successreg.php"); }); ',5000);
-//                     console.log(data)                    
-//                     console.log('form has been successfully submitted');
-
-//                 }
-//                 else{
-
-//                     // $("#error").fadeIn(1000, function(){
-
-//                     //     $("#error").html('<div class="alert alert-danger"><span class="glyphicon glyphicon-info-sign"></span> &nbsp; '+data+' !</div>');
-
-//                     //     $("#btn-submit").html('<span class="glyphicon glyphicon-log-in"></span> &nbsp; Create Account');
-
-//                     // });
-//                     console.log(data)                    
-//                     console.log('error found')
-
-
-//                 }
-//             }
-//         });
-//         return false;
-//     }
-//     /* form submit */
-
-// });
-
-</script>
 
 
 

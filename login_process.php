@@ -16,8 +16,8 @@
   try
   { 
   
-   $stmt = $db_con->prepare("SELECT * FROM tbl_customer WHERE Email=:email");
-   $stmt->execute(array(":email"=>$user_email));
+   $stmt = $db_con->prepare("SELECT * FROM tbl_customer WHERE Email=:email AND Password=:password");
+   $stmt->execute(array(":email"=>$user_email,":password"=>$password));
    // $stmt->execute(array(":email"=>'atif@gmail.com'));
    $row = $stmt->fetch(PDO::FETCH_ASSOC);
    $count = $stmt->rowCount();
@@ -25,10 +25,18 @@
    //exit;
    if($row['Password'] == $password){
    // if($row['Password']=="202cb962ac59075b964b07152d234b70"){
-
-    echo "ok"; // log in
+    //echo "ok"; // log in
+    // $row[0]="ok";
+$myJSON = json_encode($row);
+    // echo json_encode($row);
+    echo $myJSON;
     exit;
-    $_SESSION['user_session'] = $row['ID'];
+    // return $row; 
+    // $firstName = $row['First_name'];
+    // $email = $row['Email'];
+    // echo $email .  firstname;
+    // exit;
+    $_SESSION['firstname'] = $row['First_name'];
    }
    else{
     

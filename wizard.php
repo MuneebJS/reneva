@@ -43,6 +43,16 @@
 	<link rel="stylesheet" href="css/main.css">
 
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- <link rel="stylesheet" href="css/style.css"> -->
+	<!-- <link rel="stylesheet" href="css/main.css?v=1"> -->
+	<!-- <link rel="stylesheet" href="css/colors/blue.css" id="colors"> -->
+
+
+
 
 
 
@@ -52,7 +62,7 @@
 
 	<![endif]-->
 	<style type="text/css">
-	
+
 		.available-slot {
 			cursor: pointer!important;
 		}		
@@ -74,6 +84,9 @@
 		.error {
 			color: #d50000;
 		}
+		.form-control {
+			margin-top: 25px;
+		}
 
 	</style>
 
@@ -83,7 +96,29 @@
 
 
 <body>
+	<script  type="text/javascript" charset="utf-8" >
 
+		$(document).ready(function () {
+			if(sessionStorage.getItem('status') != null) {
+				console.log('session storage is not null');
+				$('#nav-reg-tab').html("<a href='#' id='logout'  onClick='logout();'>Logout</a>");
+
+					  // console.log('user logged out');
+					}
+					else {
+						console.log('session storage is null');
+						$("#ser_form_reg_err").show();
+						// setTimeout(function() { 
+						// 	$("#ser_form_reg_err").hide(); 
+						// }, 10000);
+						// scrol the page on top
+						window.scrollTo(0, 0);
+						$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
+					}
+				})
+
+
+	</script>
 
 
 	<!-- Wrapper -->
@@ -91,15 +126,34 @@
 	<div id="wrapper">
 
 
-
 <!-- Header
 
 	================================================== -->
 
+	<div class="container">
+		<div class="modal fade" id="ser-not-vailable-popup" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Sorry!</h4>
+					</div>
+					<div class="modal-body">
+						<p>We will launch this service soon</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
 
 
 	<div class="container">
-
 
 
 		<div class="row">
@@ -234,39 +288,39 @@
 						</li>
 
 
-							<li class="dropdown" >
-								<a href="services-1.html">Services</a>
-								<ul>
-									<li><a href="services-1.html">All Services</a></li>
-									<li><a href="bike-tuneup.html">Bike Tune-up</a></li>
-									<li><a href="ac-repair.html">AC Repair</a></li>
-									<li><a href="electrician.html">Electrician</a></li>
-									<li><a href="plumbing.html">Plumbing</a></li>
-									<li><a href="home-app-repair.html">Home Appliances Repair</a></li>
+						<li class="dropdown" >
+							<a href="services-1.html">Services</a>
+							<ul>
+								<li><a href="services-1.html">All Services</a></li>
+								<li><a href="bike-tuneup.html">Bike Tune-up</a></li>
+								<li><a href="ac-repair.html">AC Repair</a></li>
+								<li><a href="electrician.html">Electrician</a></li>
+								<li><a href="plumbing.html">Plumbing</a></li>
+								<li><a href="home-app-repair.html">Home Appliances Repair</a></li>
 
-								</ul>
-							</li>
+							</ul>
+						</li>
 
-							<li class="dropdown upcoming_services">
-								<a href="services-1.html">Upcoming Services</a>
-								<ul>
-									<li><a href="#ser-not-vailable-popup" class="driver_counter" data-toggle="modal" >Driver</a></li>
-									<li><a href="#ser-not-vailable-popup" class="beautician_counter" data-toggle="modal" >Beautician</a></li>
-									<li><a href="#ser-not-vailable-popup" class="maid_counter" data-toggle="modal" >Maid</a></li>
-									<li>
-										<a href="#ser-not-vailable-popup" class="cook_counter" data-toggle="modal" >
+						<li class="dropdown upcoming_services">
+							<a href="services-1.html">Upcoming Services</a>
+							<ul>
+								<li><a href="#ser-not-vailable-popup" class="driver_counter" data-toggle="modal" >Driver</a></li>
+								<li><a href="#ser-not-vailable-popup" class="beautician_counter" data-toggle="modal" >Beautician</a></li>
+								<li><a href="#ser-not-vailable-popup" class="maid_counter" data-toggle="modal" >Maid</a></li>
+								<li>
+									<a href="#ser-not-vailable-popup" class="cook_counter" data-toggle="modal" >
 										Cook</a>
 									</li>								
 								</ul>
 							</li>
 
 
-						<li class="dropdown" >
-							<a href="blog.html">Blog</a>
-						</li>
-						<li><a href="contact.html">contact</a></li>
-						<li><a href="about.html">About Us</a></li>
-					<li class="" id="nav-reg-tab"><a href="login.html" >Login/Register</a></li>
+							<li class="dropdown" >
+								<a href="blog.html">Blog</a>
+							</li>
+							<li><a href="contact.html">contact</a></li>
+							<li><a href="about.html">About Us</a></li>
+							<li class="" id="nav-reg-tab""><a href="login.html" >Login/Register</a></li>
 
 
 				<!-- Search Icon
@@ -322,328 +376,368 @@
 		</h2>
 
 		<div class="container">
-			<form id="ser_form">
-				<div class="row">
+			<div id="ser_form_error" style="display: none;" class="notification error closeable">
+					<p><span>Error!</span> Please fill in the fields required</p>
+					<a class="close" href="#"></a>
+			</div>
+			<div id="ser_form_success" style="display: none;" class="notification success closeable">
+				<p><span>Success! </span>Your service request has been submitted</p>
+				<a class="close" href="#"></a>
+			</div>
+<!-- 			<div id="ser_form_reg_err" style="display: none;" class="notification error closeable">
+				<p><span>Success! </span>Please register yourself</p>
+				<a class="close" href="#"></a>
+			</div> -->
 
+			<div id="ser_form_reg_err" style="" class="notification error closeable"><a href="login.html">
+				<p><span>Error! </span>Please register yourself</p>
+<!-- 				<a class="close" href="#"></a> -->
+    </a>
+			</div>
+			<form id="ser_form">
+				<div class="row form-group" >
 					<div class="col-md-6">
-					<span class="error" id="select-ser-error" style="display: none">Please select a service</span>
+
+						<div id="select_service_error" style="display: none; color: red;" class="notification error closeable">
+							<p><span>Error!</span> Please Select a Service.</p>
+							<a class="close" href="#"></a>
+						</div>
+
 						<select class="form-control" name="Select a Service" placeholder="Please select a service" id="ser_form_service">
 
 							<option class="num" value="">Please select a Service</option>
 
 							<optgroup label="Services">
 
-								<option class="num" value="all_residential">Bike tune-up</option>
+								<option class="num" value="bike-tuneup">Bike tune-up</option>
 
-								<option class="num" value="10">AC Repair</option>
+								<option class="num" value="ac-repair">AC Repair</option>
 
-								<option class="num" value="11">Electrician</option>
+								<option class="num" value="electrician">Electrician</option>
 
-								<option class="num" value="12">Plumbing</option>
+								<option class="num" value="plumbing">Plumbing</option>
 
-								<option class="num" value="13">Home Appliances Repair</option>
+								<option class="num" value="home-app-repair">Home Appliances Repair</option>
 
 							</optgroup>
 
 						</select>
-						</div>
-						<div class="col-md-6">
+					</div>
+					<div class="col-md-6">
 						<select class="form-control" id="ser_form_city" name="Select a city" placeholder="Enter Your City">
-        <option class="num" value="">Please select a City</option>
-              <optgroup label="Cities">
-              <option class="num" value="all_residential">Karachi</option>
-              </optgroup>
+							<option class="num" value="">Please select a City</option>
+							<optgroup label="Cities">
+								<option class="num" value="all_residential">Karachi</option>
+							</optgroup>
 						</select>
 					</div>
 
 					<div class="col-md-6">
-
-					<!-- 	<input type="text" name="" id="ser_form_address" placeholder="Enter Your Address (example : A-123,Block-12,F.B.Area,Gulberg)">
-
-					<input type="text" name="" id="ser_form_coupon" placeholder="Add Coupon ( if any )"> -->
 					<select class="form-control" id="ser_form_address" name="select address" placeholder="Enter Your City">
 
-					<option class="num" value="">Please Select Address</option>
+						<option class="num" value="">Please Select Address</option>
 
-						<!-- <optgroup label="City"> -->
+						<option class="num" id="req_ser_add_1" value="" selected>Address 1</option>
 
-							<option class="num" value="1">Address 1</option>
-
-							<option class="num" value="2">Address 2</option>
-
-							<option class="num" value="3">Address 3</option>
-
-						<!-- </optgroup> -->
+						<option class="num" id="req_ser_add_2"  value="">Address 2</option>
+						<option class="num" id="req_ser_add_3"  value="" style="display: none;">Address Custom</option>
 
 					</select>
 
 				</div>
+
+
+	<!-- Todo: this input is not connect with database nor with js -->
 				<div class="col-md-6">
-					<input type="text" name="" id="ser_form_coupon" placeholder="Add Coupon ( if any )"> 
+					<input type="text" class="form-control" style="margin-top : 25px;" name="req_ser_add_cus" id="req_ser_add_cus" placeholder="Your Custom Address"> 
 				</div>
 
-				</div>
 
-				<div class="row">
+<!-- 				<div class="col-md-6">
+					<input type="text" class="form-control" style="margin-top : 25px;" name="" id="ser_form_coupon" placeholder="Add Coupon ( if any )"> 
+				</div> -->
 
-					<div class="col-md-6">
-
-						<label class="text-center" for=""><h4>Pick a date</h4></label>
-
-						<div id="datepicker" class="custom-datepicker"></div>
-
-					</div>
-
-					<div class="col-md-6" id="demo2">
-
-						<label class="text-center" for=""><h4>Available Time Slots</h4></label>
-
-						<div class="view--block-tablet">
-
-							<div class="timepicker block-center">
-
-								<input type="hidden" name="timeSlotsData" class="timeslots-data"/>
-
-								<h4>Morning</h4>
-
-								<ul class="slots" id="slots">
-
-									<li>
-
-										<input value="1" type="radio" id="time_slot_1" name="timeSlot"/>
-
-										<label for="time_slot_1" class="time_slot available-slot" >07:00 - 08:00</label>
-
-									</li>
-
-									<li>
-
-										<input type="radio" id="time_slot_2" name="timeSlot" value="2"/>
-
-										<label for="time_slot_2" class="time_slot available-slot">08:00 - 09:00</label>
-
-									</li>
-
-									<li>
-
-										<input type="radio" name="timeSlot" id="time_slot_3"  value="3"/>
-										<label for="time_slot_3" class="time_slot available-slot">08:00 - 09:00</label>
-
-									</li>
-
-									<li>
-										<input type="radio"  id="time_slot_4" name="timeSlot" value="4"/>
-
-										<label for="time_slot_4" class="time_slot available-slot">10:00 - 11:00</label>
-
-									</li>
-
-									<li>
-
-										<input type="radio" id="time_slot_5" name="timeSlot" value="5"/>
-
-										<label for="time_slot_5"  class="time_slot available-slot">11:00 - 12:00</label>
-
-									</li>
-
-								</ul>
-
-							</div>
-
-							<div class="timepicker block-center">
-
-								<h4>Afternoon</h4>
-
-								<ul class="slots">
-
-									<li>
-
-										<input type="radio"  id="time_slot_6"  name="timeSlot" value="6"/>
-
-										<label for="time_slot_6"class="time_slot available-slot" >12:00 - 13:00</label>
-
-									</li>
-
-									<li>
-
-										<input type="radio" id="time_slot_7"  name="timeSlot" value="7"/>
-
-										<label for="time_slot_7" class="time_slot available-slot">13:00 - 14:00</label>
-
-									</li>
-
-									<li>
-
-										<input type="radio" id="time_slot_8" name="timeSlot" value="8"/>
-
-										<label for="time_slot_8" class="time_slot available-slot" >14:00 - 15:00</label>
-
-									</li>
-
-									<li>
-
-										<input type="radio"  id="time_slot_9" name="timeSlot" value="9"/>
-
-										<label for="time_slot_9" class="time_slot available-slot">15:00 - 16:00</label>
-
-									</li>
-
-									<li>
-
-										<input type="radio" id="time_slot_10" name="timeSlot" value="10"/>
-
-										<label for="time_slot_10" class="time_slot available-slot" >16:00 - 17:00</label>
-
-									</li>
-
-								</ul>
-
-							</div>
-
-							<div class="timepicker block-center">
-
-								<h4>Evening</h4>
-
-								<ul class="slots">
-
-									<li>
-
-										<input type="radio" id="time_slot_11" name="timeSlot" value="11"/>
-
-										<label for="time_slot_11"  class="time_slot available-slot">17:00 - 18:00</label>
-
-									</li>
-
-									<li>
-
-										<input type="radio"  id="time_slot_12" name="timeSlot" value="12"/>
-
-										<label for="time_slot_12" class="time_slot available-slot" >18:00 - 19:00</label>
-
-									</li>
-
-									<li>
-
-										<input type="radio" id="time_slot_13"  name="timeSlot" value="13"/>
-
-										<label for="time_slot_13" class="time_slot available-slot">19:00 - 20:00</label>
-
-									</li>
-
-									<li>
-
-										<input type="radio" id="time_slot_14" name="timeSlot" value="14"/>
-
-										<label for="time_slot_14"  class="time_slot available-slot" >20:00 - 21:00</label>
-
-									</li>
-
-									<li>
-
-										<input type="radio" id="time_slot_15" name="timeSlot" value="15"/>
-
-										<label for="time_slot_15"  class="time_slot available-slot">21:00 - 22:00</label>
-
-									</li>
-
-								</ul>
-
-							</div>
-
-							<div class="row">
-
-								<span class="align--center pbm" id="timeslot-notavailable-text">
-									<i class="glyphicon glyphicon-info-sign"></i>
-									<a data-toggle="modal" data-target=".timeslot-modal" href="#" title="If you can't find the suitable timeslot, Click here">If you can't find the suitable timeslot, Click here</a>
-
-								</span>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</div>
-
-				<div class="row">
-
-				<button type="button" class="btn btn-success text-center custom" id="ser_form_sub">Submit</button>
-
-				</div>
-			</form>
-
-		</section>
-
-
-
-		<div id="footer">
-
-			<!-- Main -->
-
-			<div class="container">
-
-				<div class="row">
-			<div class="col-md-5 col-sm-6">
-				<h4>About</h4>
-				<p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
-				<ul class="social-icons margin-bottom-30">
-					<li style="margin-right: 30px"><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
-					<li style="margin-right: 30px"><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
-					<!-- <li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li> -->
-					<div class="clearfix"></div>
-				</ul>
 			</div>
 
-			<div class="col-md-2 col-md-offset-1  col-sm-6">
-				<h4>Helpful Links</h4>
-				<ul class="footer-links">
-					<li><a href="services-1.html">Services</a></li>
-					<li><a href="blog.html">Blog</a></li>
-					<li><a href="contact.html">contact</a></li>					
-					<li><a href="about.html">About Us</a></li>
-				</ul>
-			</div>	s	
+			<div class="row">
 
+					<div id="pick_date_error" style="display: none;" class="notification error closeable">
+							<p><span>Error!</span> Please pick a data</p>
+							<a class="close" href="#"></a>
+					</div>
+				<div class="col-md-6">
 
+					<!-- <label class="text-center" for=""><h4>Pick a date</h4></label> -->
+					<h4 class="text-center">Pick a date</h4>
 
-					<div class="col-md-3  col-sm-12">
+					<div id="datepicker" class="custom-datepicker"></div>
 
-						<h4>contact</h4>
+				</div>
 
-						<div class="text-widget">
+				<div  class="col-md-6" id="demo2">
+					<!-- <label class="text-center" for=""><h4>Available Time Slots</h4></label> -->
+					<div id="select_time_error" style="display: none;" class="notification error closeable">
+							<p><span>Error!</span> Please select time</p>
+							<a class="close" href="#"></a>
+					</div>
+					<div class="text-center">
+  						 <h4>Available Time Slots</h4>
+  						 <!-- <h4>Headline H4</h4> -->
+					</div>
+					<div class="view--block-tablet">
 
-							<span>12345 Little Lonsdale St, Melbourne</span> <br>
+						<div class="timepicker block-center">
 
-							Phone: <span>(123) 123-456 </span><br>
+							<input type="hidden" name="timeSlotsData" class="timeslots-data"/>
 
-							Fax: <span>(123) 123-456</span> <br>
+							<h4>Morning</h4>
 
-							E-Mail:<span> <a class="__cf_email__" href="http://www.vasterad.com/cdn-cgi/l/email-protection" data-cfemail="3f505959565c5a7f5a475e524f535a115c5052">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script> </span><br>
+							<ul class="slots" id="slots">
+
+								<li>
+
+									<input value="1" type="radio" id="time_slot_1" name="timeSlot"/>
+
+									<label for="time_slot_1" class="time_slot available-slot" >07:00 - 08:00</label>
+
+								</li>
+
+								<li>
+
+									<input type="radio" id="time_slot_2" name="timeSlot" value="2"/>
+
+									<label for="time_slot_2" class="time_slot available-slot">08:00 - 09:00</label>
+
+								</li>
+
+								<li>
+
+									<input type="radio" name="timeSlot" id="time_slot_3"  value="3"/>
+									<label for="time_slot_3" class="time_slot available-slot">08:00 - 09:00</label>
+
+								</li>
+
+								<li>
+									<input type="radio"  id="time_slot_4" name="timeSlot" value="4"/>
+
+									<label for="time_slot_4" class="time_slot available-slot">10:00 - 11:00</label>
+
+								</li>
+
+								<li>
+
+									<input type="radio" id="time_slot_5" name="timeSlot" value="5"/>
+
+									<label for="time_slot_5"  class="time_slot available-slot">11:00 - 12:00</label>
+
+								</li>
+
+							</ul>
 
 						</div>
 
+
+						<div class="timepicker block-center">
+
+							<h4>Afternoon</h4>
+
+							<ul class="slots">
+
+								<li>
+
+									<input type="radio"  id="time_slot_6"  name="timeSlot" value="6" />
+
+									<label for="time_slot_6" class = "time_slot available-slot">12:00 - 13:00 </label>
+
+								</li>
+
+								<li>
+
+									<input type="radio" id="time_slot_7"  name="timeSlot" value="7"/>
+
+									<label for="time_slot_7" class="time_slot available-slot">13:00 - 14:00</label>
+
+								</li>
+
+								<li>
+
+									<input type="radio" id="time_slot_8" name="timeSlot" value="8"/>
+
+									<label for="time_slot_8" class="time_slot available-slot" >14:00 - 15:00</label>
+
+								</li>
+
+								<li>
+
+									<input type="radio"  id="time_slot_9" name="timeSlot" value="9"/>
+
+									<label for="time_slot_9" class="time_slot available-slot">15:00 - 16:00</label>
+
+								</li>
+
+								<li>
+
+									<input type="radio" id="time_slot_10" name="timeSlot" value="10"/>
+
+									<label for="time_slot_10" class="time_slot available-slot" >16:00 - 17:00</label>
+
+								</li>
+
+							</ul>
+
+						</div>
+
+					<div class="timepicker block-center">
+
+							<h4>Evening</h4>
+
+							<ul class="slots">
+
+								<li>
+
+									<input type="radio" id="time_slot_11" name="timeSlot" value="11"/>
+
+									<label for="time_slot_11"  class="time_slot available-slot">17:00 - 18:00</label>
+
+								</li>
+
+								<li>
+
+									<input type="radio"  id="time_slot_12" name="timeSlot" value="12"/>
+
+									<label for="time_slot_12" class="time_slot available-slot" >18:00 - 19:00</label>
+
+								</li>
+
+								<li>
+
+									<input type="radio" id="time_slot_13"  name="timeSlot" value="13"/>
+
+									<label for="time_slot_13" class="time_slot available-slot">19:00 - 20:00</label>
+
+								</li>
+
+								<li>
+
+									<input type="radio" id="time_slot_14" name="timeSlot" value="14"/>
+
+									<label for="time_slot_14"  class="time_slot available-slot" >20:00 - 21:00</label>
+
+								</li>
+
+								<li>
+
+									<input type="radio" id="time_slot_15" name="timeSlot" value="15"/>
+
+									<label for="time_slot_15"  class="time_slot available-slot">21:00 - 22:00</label>
+
+								</li>
+
+							</ul>
+
+						</div>
+
+
 					</div>
+				</div>
+				<!-- </div> -->
 
 
+<!-- 						<div class="row">
+
+							<span class="align--center pbm" id="timeslot-notavailable-text">
+								<i class="glyphicon glyphicon-info-sign"></i>
+								<a data-toggle="modal" data-target=".timeslot-modal" href="#" title="If you can't find the suitable timeslot, Click here">If you can't find the suitable timeslot, Click here</a>
+
+							</span>
+
+						</div> -->
+
+
+
+					<!-- </div> -->
+
+				<!-- </div> -->
+
+			<!-- </div> -->
+
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4 col-xs-12 text-center">
+					<button type="button" class="btn btn-success text-center custom" id="ser_form_sub">Submit</button>
+				</div>
+			</div>
+		</form>
+		<!-- </form> -->
+</div>
+	<!-- </div> -->
+
+	</section>
+
+
+
+	<div id="footer">
+
+		<!-- Main -->
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5 col-sm-6">
+					<h4>About</h4>
+					<p>Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.</p>
+					<ul class="social-icons margin-bottom-30">
+						<li style="margin-right: 30px"><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+						<li style="margin-right: 30px"><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+						<!-- <li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li> -->
+						<div class="clearfix"></div>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-md-offset-1  col-sm-6">
+					<h4>Helpful Links</h4>
+					<ul class="footer-links">
+						<li><a href="services-1.html">Services</a></li>
+						<li><a href="blog.html">Blog</a></li>
+						<li><a href="contact.html">contact</a></li>					
+						<li><a href="about.html">About Us</a></li>
+					</ul>
+				</div>	s	
+
+
+
+				<div class="col-md-3  col-sm-12">
+
+					<h4>contact</h4>
+
+					<div class="text-widget">
+
+						<span>12345 Little Lonsdale St, Melbourne</span> <br>
+
+						Phone: <span>(123) 123-456 </span><br>
+
+						Fax: <span>(123) 123-456</span> <br>
+
+						E-Mail:<span> <a class="__cf_email__" href="http://www.vasterad.com/cdn-cgi/l/email-protection" data-cfemail="3f505959565c5a7f5a475e524f535a115c5052">[email&#160;protected]</a><script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */</script> </span><br>
+
+					</div>
 
 				</div>
 
 
 
-				<!-- Copyright -->
+			</div>
 
-				<div class="row">
 
-					<div class="col-md-12">
 
-						<div class="copyrights">©  Copyright 2016 by <a href="#">Reneva</a>. All Rights Reserved.</div>
+			<!-- Copyright -->
 
-					</div>
+			<div class="row">
+
+				<div class="col-md-12">
+
+					<div class="copyrights">©  Copyright 2016 by <a href="#">Reneva</a>. All Rights Reserved.</div>
 
 				</div>
-
-
 
 			</div>
 
@@ -653,13 +747,17 @@
 
 
 
-		<!-- Back To Top Button -->
-
-		<div id="backtotop"><a href="#"></a></div>
+	</div>
 
 
-		<button id="demo">Cick here to see the action</button>
-		<span id="demo3" class="demo3">hello world</span>
+
+	<!-- Back To Top Button -->
+
+	<div id="backtotop"><a href="#"></a></div>
+
+
+<!-- 	<button id="demo">Cick here to see the action</button>
+	<span id="demo3" class="demo3">hello world</span> -->
 <!-- Scripts
 
 	================================================== -->
@@ -707,6 +805,8 @@
 	<script type="text/javascript" src="scripts/jquery.jpanelmenu.js"></script>
 
 	<script type="text/javascript" src="scripts/custom.js"></script>
+
+	<script type="text/javascript" src="scripts/signup.js"></script>
 
 
 
@@ -935,80 +1035,107 @@
 
 
 
-// Datepicker code
-    var fullDate;
-    var time_slot_id;
-    $('#datepicker').datepicker({
-    	dateFormat: 'yy-mm-d',
-    	inline: true,
-    	minDate: new Date(2017, 1 - 1, 1),
-    	maxDate:new Date(2017, 12 - 1, 31),
-    	altField: '#datepicker_value',
-    	onSelect: function(){
-    		$('.time_slot').removeClass('booked-slot');
-    		var day = $("#datepicker").datepicker('getDate').getDate();                 
-    		var month = $("#datepicker").datepicker('getDate').getMonth() + 1;             
-    		var year = $("#datepicker").datepicker('getDate').getFullYear();
+// global variables
+var fullDate;
+var time_slot_id;
 
-    		fullDate = year + "-" + month + "-" + day;
-    		console.log(fullDate.toString())
-    		$.ajax({
-    			type: 'post',
-    			url: 'availableTimeSlots.php',
-    			data: {
-    				date: fullDate,
-    			},
 
-    			success: function( result ) { 
-    				console.log('data has been send successfully');
-    				console.log(result);
-    				$(".time-slot").removeClass("booked-slot");
-    				$(".available-slot").removeClass("selected-slot");
-    				// $("#startdate-0" ).disabled = true;
-    				// $("#startdate-0").attr('disabled',true);
-    				// console.log(fullDate)
-    				var time_slot_ids = [result.split("|")]
-    				console.log(time_slot_ids)
-    				var newArr = time_slot_ids[0]
-    				console.log(newArr);	
-    				for (var i = 0; i < newArr.length; i++) {
-    					if(newArr[i] != "") {
-    						console.log(newArr[i])
-    						$("#" + newArr[i]).removeClass('available-slot');
-    						$("#" + newArr[i]).addClass('booked-slot');
-    						// var timeSlotRadio = $
-    						// $("#" + newArr[i]).attr('disabled',true);
-    						// $("#" + newArr[i]).next().addClass('booked-slot')
 
-    						
-    					}
-    				}	
+// this fun will get booked slot from database
+// will disable booked slot
+// will call on selection of date
+function getBookedSlots() {
+	var service = $('#ser_form_service').find(":selected").text();
+	if(service == 'Please select a Service') {
+		// show error`
+		 $("#select_service_error").show();
+		setTimeout(function() { 
+			$("#select_service_error").hide(); 
+		}, 10000);
+		// scrol the page on top
+		window.scrollTo(0, 0);
+	}
+
+	else {
+		console.log(service);
+		$.ajax({
+			type: 'post',
+			url: 'availableTimeSlots.php',
+			data: {
+				date: fullDate,
+				userSelectedService: service
+			},
+
+			success: function( result ) { 
+				console.log('data has been send successfully');
+				console.log(result);
+				$(".time-slot").removeClass("booked-slot");
+				$(".available-slot").removeClass("selected-slot");
+
+				var time_slot_ids = [result.split("|")]
+				console.log(time_slot_ids)
+				var newArr = time_slot_ids[0]
+				console.log(newArr);	
+				for (var i = 0; i < newArr.length; i++) {
+					if(newArr[i] != "") {
+						console.log(newArr[i])
+						$("#" + newArr[i]).removeClass('available-slot');
+						$("#" + newArr[i]).addClass('booked-slot');    						
+					}
+				}
+    				// disable booked radio
+    				// light the opacity
+    				$('.booked-slot').attr('disabled', true);
+    				$(".booked-slot").parent().css({"opacity": ".2"});
+    				// $(".booked-slot").css('opacity', '.2')
     			}
-    		});        
+    		}); 
+	}
+}
+
+
+
+$('#datepicker').datepicker({
+	dateFormat: 'yy-mm-d',
+	inline: true,
+	minDate: new Date(2017, 1 - 1, 1),
+	maxDate:new Date(2017, 12 - 1, 31),
+	altField: '#datepicker_value',
+	onSelect: function(){
+		$('.time_slot').removeClass('booked-slot');
+		var day = $("#datepicker").datepicker('getDate').getDate();                 
+		var month = $("#datepicker").datepicker('getDate').getMonth() + 1;             
+		var year = $("#datepicker").datepicker('getDate').getFullYear();
+
+		fullDate = year + "-" + month + "-" + day;
+    		// var service = $('#ser_form_service').find(":selected").text();
+    		$("input[type=radio]").attr('disabled', false);
+    		$(".booked-slot").parent().css({"opacity": "1"});
+    		$("input[type=radio]").removeClass('booked-slot');
+    		// called a fun which will get booked slots
+    		getBookedSlots();        
     	}
     });
 
 
 
-// getting value of time slot
-$('.available-slot').click(function () {
-	if(fullDate == undefined) {
-		alert('please select date')
-	}
-	if($(this).hasClass("booked-slot")) {
-		alert("please select available slot");
-	}
-	else if((this).className == "booked-slot") {
-		alert('please select availabe time slot');
+
+$("input[type=radio]").click(function () {
+	// body...
+	console.log('fired');
+	if (fullDate == undefined ) {
+		$("#pick_date_error").show();
+		setTimeout(function() { $("#pick_date_error").hide(); }, 10000);
+		// scrol the page on top
+		window.scrollTo(0, 500);
 	}
 	else {
-    		$(".available-slot").removeClass("selected-slot");
-			time_slot_id =  $(this).attr('id');
-			$(this).addClass('selected-slot')
-			// console.log(time_slot_id);
+		$("#pick_date_error").hide();
+		time_slot_id =  $(this).attr('id');
+		$(this).addClass('selected-slot')
+		console.log(time_slot_id);
 	}
-});
-
+})
 
 
 
@@ -1016,46 +1143,61 @@ $('.available-slot').click(function () {
 $('#ser_form_sub').click(function (event) {
 	event.preventDefault();
 
-	// if (sessionStorage.getItem('status') != null)
- //    //redirect to page
-	// console.log('login status checking fun is working')
-	
-	// }
-
-
-
 	var service = $('#ser_form_service').find(":selected").text();
 	var city = $('#ser_form_city').find(":selected").text();
-	var address = $("#ser_form_address").val();
+	// var address = $("#ser_form_address").val();
+	var address = $( "#ser_form_address option:selected" ).text();
 	var coupon = $("#ser_form_coupon").val();
 	var serDate = fullDate;
 	var serTime = time_slot_id;
-	var serTime = $('input[name=timeSlot]:checked').attr('id');
+	var serTime = $('#ser_form input[name=timeSlot]:checked').attr('id');
+	console.log(address);
 	if(sessionStorage.getItem('status') == null) {
 		console.log('user is not logged in');
-		 // setTimeout($('#').fadeOut(500, function () {        
-   //      location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
-   //  }), 1000 ) 
-   setTimeout(function () {
+
+		setTimeout(function () {
    	// body...
-   	 location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
-   }, 1000)
+   	location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
+   		}, 1000)
 	}
-	else if (serTime == undefined) {
-		alert('please select time');
-		// $('#select-ser-error').text('please select a service');
+	else if(serDate == undefined && serTime == undefined && service == "Please select a Service") {
+		$("#ser_form_error").show();
+		setTimeout(function() { 
+			$("#ser_form_error").hide(); 
+		}, 10000);
+		// scrol the page on top
+		window.scrollTo(0, 0);
 	}
+
 	else if(serDate == undefined) {
-		alert('please select date');
+		$("#pick_date_error").show();
+		setTimeout(function() { 
+			$("#pick_date_error").hide(); 
+		}, 10000);
+		// scrol the page on top
+		window.scrollTo(0, 500);
+	}
+
+	else if(serTime == undefined) {
+		$("#select_time_error").show();
+		setTimeout(function() { 
+			$("#select_time_error").hide(); 
+		}, 10000);
 	}
 	else if(service == "Please select a Service") {
-		alert('please select service');
+				// show error`
+		 $("#select_service_error").show();
+		setTimeout(function() { 
+			$("#select_service_error").hide(); 
+		}, 10000);
+		// scrol the page on top
+		window.scrollTo(0, 0);
 	}
 	else {
 		console.log(service, serTime)
-			 $.ajax({
-        url: "service_sub.php",
-        type: "post",
+		$.ajax({
+			url: "service_sub.php",
+			type: "post",
         // async: false,
         data: {
         	data_service: service,
@@ -1071,17 +1213,63 @@ $('#ser_form_sub').click(function (event) {
            // console.log(response)      
            // console.log('data sent successfully');
            console.log(response);
-           alert('Your form has been submitted successfully');
-           $("#" + serTime).attr('checked', false);
-           $('.time_slot').removeClass('booked-slot');
-           $('.time_slot').removeClass('selected-slot');
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-           console.log(textStatus, errorThrown);
-        }       
-    });
+           // show success notification
+			$("#ser_form_success").show();
+			// setTimeout(function() { 
+			// 	$("#ser_form_success").hide(); 
+			// }, 10000);
+		// scrol the page on top
+		window.scrollTo(0, 0);
+           $("input[type=radio]").attr('disabled', false);
+           $(".booked-slot").parent().css({"opacity": "1"});
+           $("#ser_form input[type=radio]").removeClass('booked-slot');
+           $("#ser_form input[type=radio]").removeClass('booked-slot');
+
+           // $("#" + serTime).attr('checked', false);
+           // $('.time_slot').removeClass('booked-slot');
+           // $('.time_slot').removeClass('selected-slot');
+       },
+       error: function(jqXHR, textStatus, errorThrown) {
+       	console.log(textStatus, errorThrown);
+       }       
+   });
 	}	
 })
+$(document).ready(function () {
+	// body...
+	if (sessionStorage.Address_1 && sessionStorage.Address_2) {
+		var value1 = sessionStorage.getItem("Address_1");
+		var value2 = sessionStorage.getItem("Address_2");
+  	// console.log(value);
+  	$('#req_ser_add_1').text(value1);
+  	$('#req_ser_add_2').text(value2);
+  }
+  // else {
+  // 	console.log('no value found');
+  // }
+})
+
+function logout() {
+	console.log('logout fired');
+	$('#nav-reg-tab').html('<a href="login.html">Login/Register</a>');
+	sessionStorage.clear();
+	location.replace("http://localhost/services.technohost.biz/services.technohost.biz/login.html");
+}
+
+
+    $("#req_ser_add_cus").change(function(){
+    	console.log("I'm changed");
+      var value = $('#req_ser_add_cus').val();
+      sessionStorage.setItem('Address_cus', value);
+      $('#req_ser_add_3').show(function () {
+      	// body...
+      	$(this).text(value);
+      	$(this).attr('selected', true);
+
+      })
+
+
+    });
 
 
 </script>	
@@ -1114,6 +1302,8 @@ $('#ser_form_sub').click(function (event) {
 	<script type="text/javascript" src="scripts/extensions/revolution.extension.slideanims.min.js"></script>
 
 	<script type="text/javascript" src="scripts/extensions/revolution.extension.video.min.js"></script>
+	<script type="text/javascript" src="scripts/upcoming_services.js"></script>
+
 
 
 
